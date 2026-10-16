@@ -76,12 +76,9 @@ export function Contact() {
                   <Phone className="size-5 text-primary shrink-0 mt-0.5" />
                   <div>
                     <div className="font-mono text-xs text-muted-foreground uppercase">Phone</div>
-                    <a
-                      href="tel:+94761234567"
-                      className="font-mono text-sm text-foreground hover:text-primary transition-colors font-semibold"
-                    >
-                      +94 76 123 4567
-                    </a>
+                    <span className="font-mono text-sm text-foreground font-semibold">
+                      [Your phone number]
+                    </span>
                   </div>
                 </div>
 

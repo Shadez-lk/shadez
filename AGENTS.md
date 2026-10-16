@@ -122,6 +122,19 @@ Agents must leverage the pre-installed skills in `.agents/skills/`:
 - **Assets:** Original brand assets live in `Assets/` and should be served from `public/` when referenced by Next.js.
 - **CI/CD:** Automated linting, type-checking, and build validation configured via GitHub Actions.
 
+---
+
+## 7. Technical SEO, Performance & Accessibility Kit (`SEO/`)
+
+All pages, layouts, and components must follow the 5 core rule files in `SEO/`:
+1. **`SEO-TECHNICAL.md`:** Single page registry (`src/lib/pages.ts`), unique title/description, self-referencing canonicals, dynamic `robots.ts` & `sitemap.ts`, strict heading hierarchy (`H1` -> `H2` -> `H3`), visible breadcrumbs matching schema, real crawlable `<Link>` tags.
+2. **`PERFORMANCE.md`:** Target Core Web Vitals (LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1). LCP element identified; hero image eager with `fetchPriority="high"` and accurate `sizes`. WebP/SVG assets, font preloading via `next/font`.
+3. **`RENDERING.md`:** Server HTML first. Server Components by default; `"use client"` restricted to minimal interactive leaves. All content in static HTML before JS runs. No hidden content waiting on JS animation.
+4. **`SCHEMA.md`:** JSON-LD structured data via `src/lib/schema.ts` using stable absolute `@id`s (`#organization`, `#website`, `#breadcrumb`). Zero invented facts/reviews.
+5. **`ACCESSIBILITY.md`:** WCAG 2.2 AA compliant. Skip-to-main-content link, 3:1 visible focus rings, 4.5:1 contrast ratio, labeled forms, accessible touch targets (44×44px primary).
+6. **Reporting Protocol (`START-HERE.md`):** After every page addition or change, report the 8 verification points (URLs, Title/Meta, H1, LCP element, JSON-LD, Sitemap status, Image alt text, Open placeholders).
+
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 ## This is NOT the Next.js you know

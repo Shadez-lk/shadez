@@ -46,7 +46,7 @@ export function BrandLogo({
             alt="shadez studio logo"
             width={dim.width}
             height={dim.height}
-            priority
+            loading="eager"
             className="brand-cube-image object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </div>
@@ -71,7 +71,7 @@ export function BrandLogo({
           alt="shadez monogram"
           width={currentDim.imgSize}
           height={currentDim.imgSize}
-          priority
+          loading="eager"
           className="brand-cube-image object-cover -translate-y-[8%] scale-[1.35] transition-transform duration-300 group-hover:scale-[1.42]"
         />
       </div>

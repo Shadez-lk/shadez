@@ -157,9 +157,9 @@ export function Hero() {
                   →
                 </span>
               </div>
-              <h2 className="font-display text-lg font-bold uppercase text-foreground mb-1 group-hover:text-primary transition-colors">
+              <h3 className="font-display text-lg font-bold uppercase text-foreground mb-1 group-hover:text-primary transition-colors">
                 {item.name}
-              </h2>
+              </h3>
               <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2 font-sans">
                 {item.desc}
               </p>
