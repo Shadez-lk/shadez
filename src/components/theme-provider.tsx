@@ -13,14 +13,14 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 function getThemeSnapshot(): Theme {
-  if (typeof window === "undefined") return "dark";
+  if (typeof window === "undefined") return "light";
   const saved = localStorage.getItem("shadez-theme");
   if (saved === "light" || saved === "dark") return saved;
   return document.documentElement.classList.contains("dark") ? "dark" : "light";
 }
 
 function getThemeServerSnapshot(): Theme {
-  return "dark";
+  return "light";
 }
 
 let listeners: Array<() => void> = [];
