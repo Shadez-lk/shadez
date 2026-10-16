@@ -12,11 +12,21 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+const THEME_KEY = "shadez_theme_mode";
+
 function getThemeSnapshot(): Theme {
   if (typeof window === "undefined") return "light";
-  const saved = localStorage.getItem("shadez-theme");
-  if (saved === "light" || saved === "dark") return saved;
-  return document.documentElement.classList.contains("dark") ? "dark" : "light";
+  try {
+    if (localStorage.getItem("shadez-theme")) {
+      localStorage.removeItem("shadez-theme");
+    }
+    const saved = localStorage.getItem(THEME_KEY);
+    if (saved === "dark") return "dark";
+    if (saved === "light") return "light";
+  } catch {
+    // Ignore storage errors
+  }
+  return "light";
 }
 
 function getThemeServerSnapshot(): Theme {
@@ -47,7 +57,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     } else {
       root.classList.remove("dark");
     }
-    localStorage.setItem("shadez-theme", newTheme);
+    try {
+      localStorage.setItem(THEME_KEY, newTheme);
+    } catch {
+      // Ignore storage errors
+    }
     notify();
   };
 
@@ -74,4 +88,3 @@ export function useTheme() {
   }
   return context;
 }
-

@@ -63,6 +63,7 @@ export function BrandLogo({
     >
       {/* Isometric Cube Monogram from Image */}
       <div
+        suppressHydrationWarning
         className={`relative ${currentDim.box} shrink-0 overflow-hidden flex items-center justify-center rounded-none`}
       >
         <Image

@@ -24,7 +24,11 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  var saved = localStorage.getItem('shadez-theme');
+                  // Purge legacy key to prevent stale dark mode from sticking
+                  if (localStorage.getItem('shadez-theme') === 'dark') {
+                    localStorage.removeItem('shadez-theme');
+                  }
+                  var saved = localStorage.getItem('shadez_theme_mode');
                   if (saved === 'dark') {
                     document.documentElement.classList.add('dark');
                   } else {
@@ -36,7 +40,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen bg-background text-foreground font-sans antialiased selection:bg-brand-orange selection:text-white">
+      <body
+        className="min-h-screen bg-background text-foreground font-sans antialiased selection:bg-brand-orange selection:text-white"
+        suppressHydrationWarning
+      >
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
