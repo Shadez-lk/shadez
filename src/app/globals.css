@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ==========================================================================
+   Tailwind CSS v4 Inline Theme Mapping
+   All colors, fonts, and radiuses resolve to CSS custom properties below.
+   NO hardcoded values in components.
+   ========================================================================== */
+@theme inline {
+  /* Fonts */
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-tamil: var(--font-tamil);
+
+  /* Brand Colors */
+  --color-brand-black: var(--brand-black);
+  --color-brand-orange: var(--brand-orange);
+  --color-brand-orange-hover: var(--brand-orange-hover);
+  --color-brand-orange-light: var(--brand-orange-light);
+  --color-brand-dark-grey: var(--brand-dark-grey);
+  --color-brand-light-grey: var(--brand-light-grey);
+  --color-brand-border: var(--brand-border);
+  --color-brand-grid: var(--brand-grid);
+
+  /* Semantic UI Tokens (shadcn compatible) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Radii */
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) * 1.5);
+}
+
+/* ==========================================================================
+   LIGHT MODE DEFINITIONS (:root)
+   Swiss International Style Clean Canvas
+   ========================================================================== */
+:root {
+  /* Brand Tokens */
+  --brand-black: #171717;
+  --brand-orange: #F25623;
+  --brand-orange-hover: #D94615;
+  --brand-orange-light: #FF6E38;
+  --brand-dark-grey: #4D4D4D;
+  --brand-light-grey: #DEDEDE;
+  --brand-border: #E0E0E0;
+  --brand-grid: rgba(0, 0, 0, 0.05);
+
+  /* Fonts Configuration */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Rajdhani", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-tamil: "Noto Sans Tamil", sans-serif;
+
+  /* Semantic tokens: Light Mode Canvas */
+  --background: #F8F8F8;
+  --foreground: #171717;
+  --card: #FFFFFF;
+  --card-foreground: #171717;
+  --popover: #FFFFFF;
+  --popover-foreground: #171717;
+  --primary: #F25623;
+  --primary-foreground: #FFFFFF;
+  --secondary: #EFEFEF;
+  --secondary-foreground: #171717;
+  --muted: #EAEAEA;
+  --muted-foreground: #666666;
+  --accent: #F25623;
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #DEDEDE;
+  --input: #EFEFEF;
+  --ring: #F25623;
+  --radius: 0.25rem;
+}
+
+/* ==========================================================================
+   DARK MODE DEFINITIONS (.dark)
+   Obsidian High-Contrast Architectural Dark Canvas
+   ========================================================================== */
+.dark {
+  /* Brand Tokens */
+  --brand-border: #2E2E2E;
+  --brand-grid: rgba(255, 255, 255, 0.07);
+
+  /* Semantic tokens: Dark Mode Canvas */
+  --background: #171717;
+  --foreground: #FFFFFF;
+  --card: #1D1D1D;
+  --card-foreground: #FFFFFF;
+  --popover: #1D1D1D;
+  --popover-foreground: #FFFFFF;
+  --primary: #F25623;
+  --primary-foreground: #FFFFFF;
+  --secondary: #252525;
+  --secondary-foreground: #DEDEDE;
+  --muted: #242424;
+  --muted-foreground: #9E9E9E;
+  --accent: #F25623;
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #333333;
+  --input: #292929;
+  --ring: #F25623;
+}
+
+/* ==========================================================================
+   Base Elements & Architectural Grid Utilities
+   ========================================================================== */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans transition-colors duration-200;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+}
+
+/* Swiss Architectural Grid Utility Markers */
+.swiss-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, var(--brand-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--brand-grid) 1px, transparent 1px);
+}
+
+/* Responsive Logo Image Adaptation for Light/Dark Mode */
+.brand-cube-image {
+  mix-blend-mode: multiply;
+  filter: contrast(1.1);
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+
+.dark .brand-cube-image {
+  filter: invert(1) brightness(1.2) contrast(1.1);
+  mix-blend-mode: screen;
+}

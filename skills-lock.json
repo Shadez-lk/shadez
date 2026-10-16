@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "skills": {
+    "app-store-screenshots": {
+      "source": "ParthJadhav/app-store-screenshots",
+      "sourceType": "github",
+      "skillPath": "skills/app-store-screenshots/SKILL.md",
+      "computedHash": "f06a3a59823f99b21be0dd21e82575596b48cb404fd19a6a0db4cc37fba6c883"
+    },
+    "canvas-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/canvas-design/SKILL.md",
+      "computedHash": "3fa7ea60170023ad8268bf9fd734ea75dd404279a2ef8ddf5abaa1102ad8e5f4"
+    },
+    "design-taste-frontend": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "skillPath": "skills/taste-skill/SKILL.md",
+      "computedHash": "18f81679d2b0247ce9da298b03ed8e47ecd3c206f2951d70eefb1b65d3219345"
+    },
+    "shadcn": {
+      "source": "shadcn-ui/ui",
+      "sourceType": "github",
+      "skillPath": "skills/shadcn/SKILL.md",
+      "computedHash": "b864a958765563321f485a96f4d59c0bb6539f4286ab6d8b8b66895b7ebd302d"
+    },
+    "transitions-dev": {
+      "source": "Jakubantalik/transitions.dev",
+      "sourceType": "github",
+      "skillPath": "skills/transitions-dev/SKILL.md",
+      "computedHash": "c7f9b40c6676ecc6d890db4ffecafa1ddebdb4ebaed3098521928e5115bd871f"
+    },
+    "ux-designer": {
+      "source": "szilu/ux-designer-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "24c11f852c2edf545e5c16f752fc2dd0bcbcee2c44e57c626ed091c77ea07021"
+    }
+  }
+}
