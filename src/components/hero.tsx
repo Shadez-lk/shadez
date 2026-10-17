@@ -7,31 +7,31 @@ export function Hero() {
     {
       num: "01",
       name: "Strategy",
-      desc: "Turn ideas into clear direction & research-led positioning.",
+      desc: "Actionable growth roadmaps & modern market gap analysis.",
       href: "#services",
     },
     {
       num: "02",
       name: "Software",
-      desc: "High-performance web, cloud platforms & AI/ML systems.",
+      desc: "Dynamic web engineering & top-rank Google search visibility.",
       href: "#services",
     },
     {
       num: "03",
       name: "Product Design",
-      desc: "Intuitive UI/UX design, prototypes & living design systems.",
+      desc: "Disciplined visual systems, logos, posters & digital showcases.",
       href: "#services",
     },
     {
       num: "04",
       name: "Architecture",
-      desc: "Physical retail stores, commercial interiors & spatial planning.",
+      desc: "Feasible commercial shop layouts & spatial landscape design.",
       href: "#services",
     },
     {
       num: "05",
       name: "Marketing",
-      desc: "Brand identity, narrative campaigns & measurable growth.",
+      desc: "Targeted social media ads & algorithm-informed campaigns.",
       href: "#services",
     },
   ];
@@ -57,7 +57,7 @@ export function Hero() {
               </span>
               <span className="h-px w-8 bg-border" />
               <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest hidden sm:inline-block">
-                GALLE • SRI LANKA
+                MARUTHAMUNAI • SRI LANKA
               </span>
             </div>
 
@@ -69,7 +69,7 @@ export function Hero() {
 
             {/* Subtitle / Value proposition */}
             <p className="max-w-2xl text-base sm:text-xl text-muted-foreground leading-relaxed font-sans font-light">
-              We connect strategy, software engineering, product design, physical architecture, and marketing into complete, cohesive solutions. Shaped by an independent developer and an architect in Galle, we bridge thinking and making.
+              From a foundational logo, social media accounts, and customer channels, to modern websites and commercial store styling — Shadez brings every essential shade of business growth under one roof.
             </p>
 
             {/* Interactive CTAs */}
@@ -78,7 +78,7 @@ export function Hero() {
                 href="#contact"
                 className="group inline-flex items-center gap-3 bg-primary px-6 py-3.5 text-xs font-mono uppercase tracking-widest text-primary-foreground font-semibold transition-all duration-200 hover:bg-brand-orange-hover shadow-lg shadow-primary/10"
               >
-                <span>Start a project</span>
+                <span>Scale Yours</span>
                 <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
               </Link>
 
@@ -108,36 +108,36 @@ export function Hero() {
                 <span className="size-2 rounded-full bg-primary" />
               </div>
 
-              {/* Physical + Digital Synergy Callout */}
+              {/* Brand + Digital Platform Synergy Callout */}
               <div className="space-y-4">
                 <div className="border border-border/80 bg-background/60 p-4">
                   <div className="font-mono text-xs text-primary font-semibold uppercase mb-1">
-                    Digital & Software
+                    Brand & Creative Systems
                   </div>
                   <p className="text-xs text-muted-foreground font-sans">
-                    Full-stack web/mobile platforms, custom AI models, and scalable cloud systems.
+                    Logos, social media presence, visual identity, and brand storytelling.
                   </p>
                 </div>
 
                 <div className="flex items-center justify-center my-1">
-                  <span className="font-mono text-xs text-muted-foreground/50 tracking-widest uppercase">
-                    + BRIDGED BY STUDIO +
+                  <span className="font-mono text-xs text-muted-foreground/60 tracking-widest uppercase">
+                    + UNIFIED UNDER SHADEZ +
                   </span>
                 </div>
 
                 <div className="border border-border/80 bg-background/60 p-4">
                   <div className="font-mono text-xs text-primary font-semibold uppercase mb-1">
-                    Physical & Spatial
+                    Growth Platforms & Spatial Design
                   </div>
                   <p className="text-xs text-muted-foreground font-sans">
-                    Commercial interiors, retail store planning, layout optimization, and physical build systems.
+                    Dynamic web systems, top-rank SEO, and attractive commercial shop styling.
                   </p>
                 </div>
               </div>
 
               <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-[11px] font-mono text-muted-foreground">
-                <span>FOUNDED IN GALLE</span>
-                <span className="text-foreground">2024 / ACTIVE</span>
+                <span>FOUNDED IN MARUTHAMUNAI</span>
+                <span className="text-foreground">2026 / ACTIVE</span>
               </div>
             </div>
           </div>
@@ -170,4 +170,3 @@ export function Hero() {
     </section>
   );
 }
-

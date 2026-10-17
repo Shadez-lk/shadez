@@ -42,14 +42,14 @@ export function Navigation() {
 
           <div className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-muted-foreground border-l border-border pl-5">
             <span className="size-2 rounded-full bg-primary animate-pulse" />
-            <span>Galle, LK</span>
+            <span>Maruthamunai, LK</span>
           </div>
 
           <Link
             href="#contact"
             className="group inline-flex items-center gap-2 rounded-none bg-primary px-4 py-2 text-xs font-mono uppercase tracking-wider text-primary-foreground transition-all duration-200 hover:bg-brand-orange-hover"
           >
-            <span>Start a project</span>
+            <span>Scale Yours</span>
             <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
@@ -89,14 +89,14 @@ export function Navigation() {
               </div>
               <div className="flex items-center gap-2 text-xs font-mono uppercase text-muted-foreground">
                 <span className="size-2 rounded-full bg-primary" />
-                <span>Galle, Sri Lanka — Available for Q4</span>
+                <span>Maruthamunai, Sri Lanka — Active 2026</span>
               </div>
               <Link
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="inline-flex items-center justify-center gap-2 bg-primary px-4 py-3 text-xs font-mono uppercase tracking-wider text-primary-foreground font-semibold"
               >
-                <span>Start a project</span>
+                <span>Scale Yours</span>
                 <ArrowUpRight className="size-4" />
               </Link>
             </div>

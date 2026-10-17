@@ -1,35 +1,57 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowRight, Mail, Phone, MapPin, Check } from "lucide-react";
+import { ArrowRight, Mail, Phone, MapPin, Check, MessageSquare, AlertCircle, Loader2 } from "lucide-react";
 
 export function Contact() {
-  const [selectedDisciplines, setSelectedDisciplines] = useState<string[]>([]);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: "",
+    phone: "",
     timeline: "1-3 months",
+    message: "",
   });
 
-  const disciplines = [
-    "01 Strategy",
-    "02 Software",
-    "03 Product Design",
-    "04 Architecture",
-    "05 Marketing",
-  ];
-
-  const toggleDiscipline = (item: string) => {
-    setSelectedDisciplines((prev) =>
-      prev.includes(item) ? prev.filter((d) => d !== item) : [...prev, item]
-    );
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "c6e7248c-75dd-4b7e-9341-4a3efda43b09",
+          subject: `New Project Inquiry from ${formData.name} — Shadez`,
+          from_name: "Shadez Lead System",
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || "Not provided",
+          timeline: formData.timeline,
+          message: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        setErrorMessage(
+          result.message || "Unable to send message. Please reach us directly via email or WhatsApp."
+        );
+      }
+    } catch {
+      setErrorMessage("Network issue detected. Please email believewave4u@gmail.com directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -46,7 +68,7 @@ export function Contact() {
             </h2>
           </div>
           <p className="max-w-md text-sm text-muted-foreground font-sans leading-relaxed">
-            Have a project in mind, a commercial space to plan, or a digital platform to engineer? Direct access to our founders starts here.
+            Have a project in mind, a dynamic website to engineer, a brand to design, or a shop space to plan? Reach out directly to our founders.
           </p>
         </div>
 
@@ -64,10 +86,10 @@ export function Contact() {
                   <div>
                     <div className="font-mono text-xs text-muted-foreground uppercase">Email</div>
                     <a
-                      href="mailto:hello@shadez.lk"
+                      href="mailto:believewave4u@gmail.com"
                       className="font-mono text-sm text-foreground hover:text-primary transition-colors font-semibold"
                     >
-                      hello@shadez.lk
+                      believewave4u@gmail.com
                     </a>
                   </div>
                 </div>
@@ -75,10 +97,24 @@ export function Contact() {
                 <div className="flex items-start gap-4">
                   <Phone className="size-5 text-primary shrink-0 mt-0.5" />
                   <div>
-                    <div className="font-mono text-xs text-muted-foreground uppercase">Phone</div>
-                    <span className="font-mono text-sm text-foreground font-semibold">
-                      [Your phone number]
-                    </span>
+                    <div className="font-mono text-xs text-muted-foreground uppercase">Phone / WhatsApp</div>
+                    <div className="flex flex-col gap-1">
+                      <a
+                        href="tel:+94764346350"
+                        className="font-mono text-sm text-foreground hover:text-primary transition-colors font-semibold"
+                      >
+                        +94 76 434 6350
+                      </a>
+                      <a
+                        href="https://wa.me/94764346350"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 font-mono text-xs text-primary hover:underline"
+                      >
+                        <MessageSquare className="size-3" />
+                        <span>Chat on WhatsApp</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
@@ -87,10 +123,10 @@ export function Contact() {
                   <div>
                     <div className="font-mono text-xs text-muted-foreground uppercase">Location</div>
                     <div className="font-mono text-sm text-foreground font-semibold">
-                      Galle, Sri Lanka
+                      Maruthamunai, Sri Lanka
                     </div>
                     <div className="text-xs text-muted-foreground mt-0.5">
-                      Open for global & regional clients
+                      Open for regional and global clients
                     </div>
                   </div>
                 </div>
@@ -102,7 +138,7 @@ export function Contact() {
                 Response SLA
               </div>
               <p className="text-xs text-foreground font-sans leading-relaxed">
-                We review inquiries daily and respond with an initial discovery perspective within 24 hours.
+                We review inquiries daily and respond with an actionable perspective within 24 hours.
               </p>
             </div>
           </div>
@@ -118,42 +154,44 @@ export function Contact() {
                   Inquiry Received
                 </h3>
                 <p className="text-sm text-muted-foreground max-w-md font-sans">
-                  Thank you for reaching out to Shadez. Our team will review your project brief and get back to you within 24 hours.
+                  Thank you for reaching out to Shadez. Your brief has been forwarded directly to our founders. We will review your requirements and respond within 24 hours.
                 </p>
-                <button
-                  type="button"
-                  onClick={() => setSubmitted(false)}
-                  className="mt-4 font-mono text-xs uppercase tracking-wider text-primary hover:underline"
-                >
-                  Submit another inquiry
-                </button>
+                <div className="flex items-center gap-4 mt-4">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSubmitted(false);
+                      setFormData({
+                        name: "",
+                        email: "",
+                        phone: "",
+                        timeline: "1-3 months",
+                        message: "",
+                      });
+                    }}
+                    className="font-mono text-xs uppercase tracking-wider text-primary hover:underline"
+                  >
+                    Submit another inquiry
+                  </button>
+                  <span className="text-muted-foreground">•</span>
+                  <a
+                    href="https://wa.me/94764346350"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-xs uppercase tracking-wider text-primary hover:underline"
+                  >
+                    Message on WhatsApp
+                  </a>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block font-mono text-xs uppercase tracking-wider text-muted-foreground mb-2">
-                    Disciplines Required
-                  </label>
-                  <div className="flex flex-wrap gap-2">
-                    {disciplines.map((d) => {
-                      const isSelected = selectedDisciplines.includes(d);
-                      return (
-                        <button
-                          key={d}
-                          type="button"
-                          onClick={() => toggleDiscipline(d)}
-                          className={`px-3 py-1.5 font-mono text-xs border transition-colors ${
-                            isSelected
-                              ? "border-primary bg-primary text-primary-foreground font-bold"
-                              : "border-border bg-background text-muted-foreground hover:border-border/90"
-                          }`}
-                        >
-                          {d}
-                        </button>
-                      );
-                    })}
+                {errorMessage && (
+                  <div className="border border-destructive/40 bg-destructive/10 p-3.5 text-xs text-destructive flex items-center gap-2">
+                    <AlertCircle className="size-4 shrink-0" />
+                    <span>{errorMessage}</span>
                   </div>
-                </div>
+                )}
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -179,17 +217,56 @@ export function Contact() {
                       htmlFor="email"
                       className="block font-mono text-xs uppercase tracking-wider text-muted-foreground mb-1.5"
                     >
-                      Work Email *
+                      Your Email *
                     </label>
                     <input
                       id="email"
                       required
                       type="email"
-                      placeholder="e.g. inshaf@company.lk"
+                      placeholder="e.g. name@domain.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full bg-background border border-border px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary transition-colors"
                     />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block font-mono text-xs uppercase tracking-wider text-muted-foreground mb-1.5"
+                    >
+                      Phone / WhatsApp (Optional)
+                    </label>
+                    <input
+                      id="phone"
+                      type="tel"
+                      placeholder="e.g. +94 76 434 6350"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full bg-background border border-border px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="timeline"
+                      className="block font-mono text-xs uppercase tracking-wider text-muted-foreground mb-1.5"
+                    >
+                      Estimated Timeline
+                    </label>
+                    <select
+                      id="timeline"
+                      value={formData.timeline}
+                      onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
+                      className="w-full bg-background border border-border px-4 py-2.5 text-sm text-foreground focus:outline-none focus:border-primary transition-colors"
+                    >
+                      <option value="Immediate (< 1 month)">Immediate (&lt; 1 month)</option>
+                      <option value="1-3 months">1–3 months</option>
+                      <option value="3-6 months">3–6 months</option>
+                      <option value="Exploratory / Flexible">Exploratory / Flexible</option>
+                    </select>
                   </div>
                 </div>
 
@@ -204,20 +281,39 @@ export function Contact() {
                     id="message"
                     required
                     rows={4}
-                    placeholder="Tell us about what you want to build or design (digital platform, retail space, or complete identity)..."
+                    placeholder="Tell us about what you want to build or design (dynamic website, brand system, shop layout, or marketing campaign)..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full bg-background border border-border px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary transition-colors resize-none"
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-primary px-8 py-3.5 text-xs font-mono uppercase tracking-widest text-primary-foreground font-semibold hover:bg-brand-orange-hover transition-colors shadow-lg shadow-primary/10"
-                >
-                  <span>Send inquiry</span>
-                  <ArrowRight className="size-4" />
-                </button>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-primary px-8 py-3.5 text-xs font-mono uppercase tracking-widest text-primary-foreground font-semibold hover:bg-brand-orange-hover transition-colors shadow-lg shadow-primary/10 disabled:opacity-60"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="size-4 animate-spin" />
+                        <span>Transmitting...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Send inquiry</span>
+                        <ArrowRight className="size-4" />
+                      </>
+                    )}
+                  </button>
+
+                  <a
+                    href="mailto:believewave4u@gmail.com"
+                    className="text-xs font-mono text-muted-foreground hover:text-primary transition-colors text-center sm:text-right"
+                  >
+                    Or email directly: believewave4u@gmail.com
+                  </a>
+                </div>
               </form>
             )}
           </div>

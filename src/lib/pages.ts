@@ -24,10 +24,10 @@ export const PAGES: Record<string, PageInfo> = {
     path: "/",
     title: "shadez — Different shades. One business.",
     description:
-      "Shadez is a multidisciplinary technology, product design, and physical architecture studio founded in Galle, Sri Lanka. Connecting strategy, software, spatial design, and marketing.",
+      "Shadez is an all-in-one digital marketing and growth studio connecting strategy, software engineering, product design, physical architecture, and marketing. Founded in Maruthamunai, Sri Lanka.",
     h1: "Different shades. One business.",
     indexable: true,
-    lastModified: "2026-10-16",
+    lastModified: "2026-10-17",
     breadcrumbs: [{ name: "Home", path: "/" }],
   },
 };
@@ -39,4 +39,3 @@ export function getPageByPath(path: string): PageInfo | undefined {
 export function getAllIndexablePages(): PageInfo[] {
   return Object.values(PAGES).filter((page) => page.indexable);
 }
-

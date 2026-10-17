@@ -11,21 +11,21 @@ All AI agents working in this repository must strictly adhere to the brand guide
 - **Brand Name:** `shadez` (lowercase wordmark)
 - **Tagline:** *"Different shades. One business."*
 - **Positioning:** A multidisciplinary studio shaped around client needs. Connecting strategy, software, product design, physical architecture/spatial design, and marketing into complete, high-impact solutions.
-- **Origin & Story:** Founded by an independent developer and an architect based in Galle, Sri Lanka. The work marries structural discipline, physical environment design, and digital engineering.
+- **Origin & Story:** Founded in 2026 by a computer engineering lead and a landscape architecture lead based in Maruthamunai, Sri Lanka. The work marries structural discipline, physical environment design, top-tier Google search visibility, and digital engineering.
 - **The Core Duality (Physical + Digital):**
-  - **Digital & Technology:** Software engineering, cloud systems, product design (UI/UX), AI/ML, and digital marketing.
+  - **Digital & Technology:** Software engineering, dynamic web applications, top-rank SEO, product design (UI/UX), and digital marketing.
   - **Physical & Spatial Design:** Architectural planning, commercial space design, retail store layouts, and spatial experience.
-  - *Example synergy:* For a retail client, Shadez can design the physical retail store layout, craft the brand identity, build the e-commerce platform & POS systems, and execute the launch marketing campaign — all as one unified studio.
+  - *Example synergy:* For a retail client, Shadez can design the physical retail store layout, craft the brand identity, build the dynamic web presence with top-rank SEO, and execute the launch marketing campaign — all as one unified studio.
 
 - **The 5 Core Disciplines:**
-  1. `01 / Strategy` — Business/product strategy, market positioning, digital transformation, research-led planning.
-  2. `02 / Software` — Scalable web/mobile applications, cloud platforms, AI/ML systems, backend automation.
-  3. `03 / Product Design` — UI/UX design, prototyping, design systems, digital interaction.
-  4. `04 / Architecture` — Physical architecture, commercial interiors, retail store planning, spatial design, and technical systems.
-  5. `05 / Marketing` — Brand identity, digital presence, narrative campaigns, growth execution.
+  1. `01 / Strategy` — Business growth roadmaps, market gap analysis, digital transformation, research-led planning.
+  2. `02 / Software` — High-speed dynamic web applications, top-tier Google search SEO, custom web engineering.
+  3. `03 / Product Design` — Disciplined visual systems, logo design, commercial posters, digital product showcases.
+  4. `04 / Architecture` — Physical architecture, commercial shop interiors, retail store planning, spatial design, and technical systems.
+  5. `05 / Marketing` — Social media advertising, algorithmic campaigns, audience targeting, growth execution.
 
 - **The Studio Process:**
-  `01 Understand` → `02 Plan` → `03 Design` → `04 Build` → `05 Deliver`
+  `01 Understand` → `02 Plan` → `03 Design` → `04 Build` → `05 Launch & Grow`
 - **Brand Mottos:** `THINK. BUILD.` | `MAKE A MARK.` | `STRATEGY MEETS DESIGN.`
 
 ---

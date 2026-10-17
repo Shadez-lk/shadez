@@ -3,24 +3,24 @@ import { CheckCircle2 } from "lucide-react";
 
 export function About() {
   const stats = [
-    { value: "02", label: "Founders", sub: "Developer + Architect" },
-    { value: "05", label: "Disciplines", sub: "End-to-End Suite" },
-    { value: "100%", label: "Direct Access", sub: "Zero Middlemen" },
-    { value: "Galle", label: "Studio Hub", sub: "Southern Sri Lanka" },
+    { value: "02", label: "Founders", sub: "Software + Spatial Systems" },
+    { value: "05", label: "Disciplines", sub: "All-in-One Studio" },
+    { value: "2026", label: "Active Studio", sub: "Maruthamunai, Sri Lanka" },
+    { value: "#1", label: "SEO Standard", sub: "Top-Rank Google Visibility" },
   ];
 
   const philosophies = [
     {
-      title: "Structural Discipline",
-      desc: "We approach software engineering with the permanence and load-bearing rigor of physical architecture. Clean modular systems built to scale without collapse.",
+      title: "Full-Spectrum Modernization",
+      desc: "We bring high-caliber digital engineering and spatial design standards to emerging and established businesses, empowering them to compete and win.",
+    },
+    {
+      title: "Structural Rigor Meets Spatial Aesthetics",
+      desc: "We approach web code and digital marketing with the same structural discipline, precision, and longevity as physical commercial architecture.",
     },
     {
       title: "Zero Agency Bloat",
-      desc: "You collaborate directly with the developer and the architect doing the work. Decisions happen in hours, not weeks of bureaucratic handoffs.",
-    },
-    {
-      title: "Physical + Digital Cohesion",
-      desc: "Whether your customer walks through your retail store door or visits your mobile app, the experience is designed as one unified reality.",
+      desc: "You collaborate directly with the founders building your software, brand assets, and shop spaces. Decisions happen in hours, not weeks of bureaucratic handoffs.",
     },
   ];
 
@@ -38,7 +38,7 @@ export function About() {
             </h2>
           </div>
           <p className="max-w-md text-sm text-muted-foreground font-sans leading-relaxed">
-            Founded in Galle, Sri Lanka, Shadez is built on the belief that the greatest work occurs at the intersection of architectural structure and digital engineering.
+            Founded in 2026 in Maruthamunai, Sri Lanka, Shadez is built on the conviction that real business growth happens when software logic, brand aesthetics, and physical commercial spaces work as one.
           </p>
         </div>
 
@@ -46,13 +46,13 @@ export function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
           <div className="lg:col-span-7 flex flex-col gap-6">
             <h3 className="font-display text-2xl sm:text-3xl font-bold uppercase text-foreground leading-snug">
-              Why an architect and a developer joined forces.
+              Why a software engineer and a landscape architect joined forces.
             </h3>
             <p className="text-muted-foreground font-sans text-base leading-relaxed">
-              Traditional technology agencies build software in isolation, disconnected from physical business reality. Architecture practices design spaces without considering digital commerce or automated operations.
+              Traditional agencies force businesses to manage disconnected vendors: hiring one freelancer for a logo, someone else for a basic website, and having no one to guide physical shop layouts or real algorithmic digital marketing.
             </p>
             <p className="text-muted-foreground font-sans text-base leading-relaxed">
-              Shadez connects both worlds. We bring the spatial discipline, ergonomics, and material precision of architecture together with the agility, cloud automation, and high-velocity code of modern software.
+              Shadez connects every essential touchpoint. We bring the high-performance logic, dynamic web code, and top-tier Google search visibility of computer engineering together with the spatial planning, customer circulation, and visual discipline of landscape architecture.
             </p>
 
             {/* Core Values / Philosophy */}
@@ -99,4 +99,3 @@ export function About() {
     </section>
   );
 }
-

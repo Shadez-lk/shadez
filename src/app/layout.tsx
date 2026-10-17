@@ -15,16 +15,18 @@ export const metadata: Metadata = {
     template: "%s | shadez",
   },
   description:
-    "A multidisciplinary technology, product design, and physical architecture studio based in Galle, Sri Lanka. Strategy, software, spatial architecture, and marketing.",
+    "An all-in-one digital marketing and growth studio based in Maruthamunai, Sri Lanka. Strategy, software engineering, product design, commercial architecture, and marketing.",
   keywords: [
     "shadez",
-    "multidisciplinary studio",
+    "all-in-one studio",
+    "digital marketing agency",
     "software engineering",
-    "architecture studio Galle",
-    "commercial interior design",
-    "retail store layout",
-    "product design UI UX",
-    "Sri Lanka tech studio",
+    "top SEO ranking",
+    "commercial retail shop layout",
+    "spatial design",
+    "Maruthamunai",
+    "Sri Lanka",
+    "product design",
     "brand identity",
   ],
   authors: [{ name: "shadez", url: SITE_URL }],
@@ -44,13 +46,13 @@ export const metadata: Metadata = {
     siteName: "shadez",
     title: "shadez — Different shades. One business.",
     description:
-      "A multidisciplinary technology, product design, and physical architecture studio based in Galle, Sri Lanka. Connecting thinking and making.",
+      "An all-in-one digital marketing and growth studio based in Maruthamunai, Sri Lanka. Connecting thinking and making.",
     images: [
       {
         url: "/brand/shadez-cube-logo.jpg",
         width: 1200,
         height: 630,
-        alt: "shadez studio — technology, product design, and physical architecture",
+        alt: "shadez studio — digital marketing, software, and spatial design",
       },
     ],
   },
@@ -58,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "shadez — Different shades. One business.",
     description:
-      "A multidisciplinary technology, product design, and physical architecture studio based in Galle, Sri Lanka. Connecting thinking and making.",
+      "An all-in-one digital marketing and growth studio based in Maruthamunai, Sri Lanka. Connecting thinking and making.",
     images: ["/brand/shadez-cube-logo.jpg"],
   },
   robots: {

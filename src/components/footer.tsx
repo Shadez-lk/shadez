@@ -16,7 +16,7 @@ export function Footer() {
           <div className="md:col-span-5 flex flex-col gap-4">
             <BrandLogo size="lg" />
             <p className="text-sm text-muted-foreground font-sans max-w-sm leading-relaxed mt-2">
-              A multidisciplinary studio founded by an independent developer and an architect in Galle, Sri Lanka. Connecting strategy, software, product design, physical architecture, and marketing.
+              An all-in-one digital marketing and growth studio connecting strategy, software engineering, product design, physical architecture, and marketing. Founded in Maruthamunai, Sri Lanka.
             </p>
             <div className="font-mono text-xs text-primary font-semibold tracking-wider uppercase mt-2">
               Different shades. One business.
@@ -46,12 +46,12 @@ export function Footer() {
               </li>
               <li>
                 <Link href="#services" className="hover:text-primary transition-colors">
-                  04 / Spatial & Retail Architecture
+                  04 / Commercial Shop Architecture
                 </Link>
               </li>
               <li>
                 <Link href="#services" className="hover:text-primary transition-colors">
-                  05 / Growth & Brand Marketing
+                  05 / Algorithmic Digital Marketing
                 </Link>
               </li>
             </ul>
@@ -61,12 +61,14 @@ export function Footer() {
           <div className="md:col-span-4 flex flex-col justify-between">
             <div>
               <div className="font-mono text-xs uppercase tracking-widest text-foreground font-bold mb-4">
-                Location & Network
+                Location & Direct Channels
               </div>
               <p className="text-xs font-mono text-muted-foreground leading-relaxed mb-4">
                 Shadez Studio<br />
-                Galle, Southern Province<br />
-                Sri Lanka (UTC+05:30)
+                Maruthamunai, Eastern Province<br />
+                Sri Lanka (UTC+05:30)<br />
+                <a href="mailto:believewave4u@gmail.com" className="hover:text-primary transition-colors">believewave4u@gmail.com</a><br />
+                <a href="tel:+94764346350" className="hover:text-primary transition-colors">+94 76 434 6350</a>
               </p>
             </div>
 
@@ -96,6 +98,15 @@ export function Footer() {
                 className="hover:text-primary transition-colors"
               >
                 Instagram
+              </a>
+              <span>•</span>
+              <a
+                href="https://wa.me/94764346350"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-primary transition-colors"
+              >
+                WhatsApp
               </a>
             </div>
           </div>

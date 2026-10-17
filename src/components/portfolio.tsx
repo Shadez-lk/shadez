@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 
 type ProjectCategory = "all" | "digital" | "brand" | "architecture";
 
@@ -14,6 +14,7 @@ interface Project {
   summary: string;
   stack: string[];
   metrics: string;
+  href?: string;
   isConcept?: boolean;
 }
 
@@ -22,94 +23,52 @@ export function Portfolio() {
 
   const projects: Project[] = [
     {
-      id: "nexcart",
-      title: "NexCart Omnichannel Platform",
-      client: "NexCart Retail Group",
+      id: "madeena-warriors",
+      title: "Madeena Warriors Community Platform",
+      client: "KM Maruthamunai Al-Madeena Vidyalaya Batch 2018",
       category: "digital",
       categoryLabel: "Digital & Software",
       summary:
-        "Unified e-commerce infrastructure, warehouse sync, and multi-terminal in-store point of sale for family fashion retailers.",
-      stack: ["Next.js", "TypeScript", "Node.js", "PostgreSQL"],
-      metrics: "3.4x Faster Checkout • 99.98% Uptime",
-    },
-    {
-      id: "belivewave",
-      title: "BeliveWave ECS406 Fraud Detection",
-      client: "Financial Technology Core",
-      category: "digital",
-      categoryLabel: "Digital & AI/ML",
-      summary:
-        "High-throughput machine learning pipeline classifying credit card anomalies with ultra-low latency inference.",
-      stack: ["FastAPI", "Python", "XGBoost", "Docker"],
-      metrics: "95.4% Precision • <45ms Latency",
-    },
-    {
-      id: "maruthamunai",
-      title: "MaruthamunAI Predictive Analytics",
-      client: "Enterprise Decision Systems",
-      category: "digital",
-      categoryLabel: "Digital & AI/ML",
-      summary:
-        "Regional economic forecasting dashboard combining real-time data ingestion, automated reporting, and interactive visualizations.",
-      stack: ["Python", "FastAPI", "React", "Tailwind CSS"],
-      metrics: "12,000+ Daily Records Analyzed",
-    },
-    {
-      id: "kandyan-heritage",
-      title: "Kandyan Heritage Flagship Store",
-      client: "Commercial Retail Client",
-      category: "architecture",
-      categoryLabel: "Architecture & Spatial",
-      summary:
-        "Turnkey commercial interior layout, customer circulation planning, custom display joinery, and lighting system for a 2,400 sq.ft retail space.",
-      stack: ["Spatial Planning", "Interior Architecture", "Custom Millwork", "Lighting Design"],
-      metrics: "40% Higher Floor Retention",
+        "Official digital alumni archive, batch directory, and social platform. Engineered with high-velocity code and structured metadata to achieve the #1 Google ranking with sitelinks and AI Overview inclusion.",
+      stack: ["Next.js", "TypeScript", "Tailwind CSS", "Top-Tier SEO"],
+      metrics: "#1 Google Search Rank • Rich Sitelinks & AI Overview Featured",
+      href: "https://madeenawarriors2k18.vercel.app/",
       isConcept: false,
     },
     {
-      id: "galle-coastal-pavilion",
-      title: "Southern Coastal Pavilion & Cafe",
-      client: "Hospitality Collective Galle",
+      id: "commercial-retail-framework",
+      title: "Commercial Retail & Spatial Framework",
+      client: "Studio Architecture & Spatial Blueprint",
       category: "architecture",
       categoryLabel: "Architecture & Spatial",
       summary:
-        "Open-plan beachfront commercial structure featuring climate-responsive natural ventilation, timber canopy framing, and integrated POS counters.",
-      stack: ["Tropical Modernism", "Structural Systems", "Commercial Layout"],
-      metrics: "Zero AC Operating Footprint",
+        "Feasible commercial shop layout blueprint incorporating optimized customer circulation flow, display millwork, natural ventilation, and attractive storefront facade design.",
+      stack: ["Spatial Planning", "Storefront Facade", "Shop Interior", "Feasibility Blueprint"],
+      metrics: "Optimized Customer Flow • Attractive Spatial Impact",
       isConcept: true,
     },
     {
-      id: "madeena-warriors",
-      title: "Madeena Warriors Community Platform",
-      client: "Sports & Youth Organization",
+      id: "brand-identity-system",
+      title: "Brand & Visual Identity System",
+      client: "Modern Enterprise Identity Framework",
       category: "brand",
       categoryLabel: "Brand & Design",
       summary:
-        "Complete visual identity redesign, typography system, merchandise branding, and member registration digital portal.",
-      stack: ["Visual Identity", "UI/UX Design", "Next.js", "Tailwind CSS"],
-      metrics: "15,000+ Active Members",
+        "Disciplined brand identity system unifying logo design, Swiss typography hierarchy, commercial marketing posters, and digital showcase standards across all customer touchpoints.",
+      stack: ["Logo Design", "Visual Guidelines", "Product Showcases", "Poster Systems"],
+      metrics: "Unified Brand System • Multi-Platform Consistency",
+      isConcept: true,
     },
     {
-      id: "hdl-parking",
-      title: "HDL Smart Urban Parking System",
-      client: "Municipal Infrastructure",
+      id: "digital-growth-framework",
+      title: "Algorithmic Growth & Web Framework",
+      client: "Digital Marketing & Platform Prototype",
       category: "digital",
-      categoryLabel: "Digital & IoT",
+      categoryLabel: "Digital & Marketing",
       summary:
-        "Sensor-driven automated parking spot management with real-time mobile availability guidance and toll reconciliation.",
-      stack: ["IoT", "WebSockets", "React Native", "Go"],
-      metrics: "500+ Sensor Endpoints",
-    },
-    {
-      id: "aura-botanicals",
-      title: "Aura Botanicals Brand & Space",
-      client: "Organic Wellness Retail",
-      category: "brand",
-      categoryLabel: "Brand + Physical Synergy",
-      summary:
-        "A holistic dual project: designed the sustainable retail store layout alongside the brand packaging system and e-commerce portal.",
-      stack: ["Store Interior", "Packaging Design", "E-Commerce"],
-      metrics: "Complete Studio Synergy",
+        "Full-funnel digital marketing model connecting high-converting web landing pages with targeted social media advertising campaigns and conversion tracking.",
+      stack: ["High-Converting Web", "Meta Ads", "Google Search", "Funnel Analytics"],
+      metrics: "Targeted Audience Reach • Data-Driven Conversions",
       isConcept: true,
     },
   ];
@@ -131,7 +90,7 @@ export function Portfolio() {
             </h2>
           </div>
           <p className="max-w-md text-sm text-muted-foreground font-sans leading-relaxed">
-            A curated showcase of software systems, brand systems, and physical commercial spaces created with structural discipline.
+            A curated showcase of high-ranking software platforms, disciplined visual identities, and commercial spatial blueprints.
           </p>
         </div>
 
@@ -175,20 +134,36 @@ export function Portfolio() {
                   <span className="font-mono text-xs text-primary font-semibold uppercase">
                     {project.categoryLabel}
                   </span>
-                  {project.isConcept && (
+                  {project.isConcept ? (
                     <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground border border-border px-2 py-0.5">
-                      Studio Concept
+                      Studio Framework
+                    </span>
+                  ) : (
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-primary border border-primary/40 bg-primary/5 px-2 py-0.5 font-bold">
+                      Live Showcase
                     </span>
                   )}
                 </div>
 
                 <h3 className="text-2xl sm:text-3xl font-display font-bold uppercase text-foreground mb-2 group-hover:text-primary transition-colors flex items-center justify-between">
                   <span>{project.title}</span>
-                  <ArrowUpRight className="size-5 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:text-primary transition-all duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  {project.href ? (
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors p-1"
+                      aria-label={`Visit live project ${project.title}`}
+                    >
+                      <ExternalLink className="size-5" />
+                    </a>
+                  ) : (
+                    <ArrowUpRight className="size-5 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:text-primary transition-all duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  )}
                 </h3>
 
                 <div className="font-mono text-xs text-muted-foreground mb-4">
-                  Client: {project.client}
+                  Client / Context: {project.client}
                 </div>
 
                 <p className="text-sm text-muted-foreground leading-relaxed font-sans mb-6">
@@ -220,4 +195,3 @@ export function Portfolio() {
     </section>
   );
 }
-

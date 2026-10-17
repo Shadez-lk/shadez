@@ -7,46 +7,46 @@ export function Services() {
     {
       id: "01",
       title: "Strategy",
-      tagline: "Clarity before code & construction.",
+      tagline: "Actionable growth direction for modern businesses.",
       description:
-        "We uncover market opportunities, define brand positioning, and architect actionable roadmaps. We connect strategic research directly with execution so every investment has purpose.",
-      deliverables: ["Product Discovery", "Market Positioning", "Digital Transformation", "Feasibility Studies"],
+        "We craft modern, research-driven business strategies to modernize your operations and scale. We identify real market gaps and design practical roadmaps tailored for growing enterprises.",
+      deliverables: ["Business Growth Roadmaps", "Market Gap Analysis", "Digital Transformation", "Modern Growth Strategy"],
       icon: Compass,
     },
     {
       id: "02",
       title: "Software",
-      tagline: "Scalable, high-velocity digital engineering.",
+      tagline: "High-performance websites & digital platforms with top-tier SEO.",
       description:
-        "Full-stack web applications, custom APIs, AI/ML models, and cloud infrastructure engineered for longevity, resilience, and rapid deployment cycles.",
-      deliverables: ["Web & Mobile Apps", "AI & Machine Learning", "Cloud Architecture", "API Integration"],
+        "Engineered with computer engineering precision. We build dynamic, high-speed websites and custom web systems designed to rank at the top of Google search results and convert visitors into long-term customers.",
+      deliverables: ["Dynamic Web Applications", "Top-Rank SEO Optimization", "Custom Web Development", "Google Search Visibility"],
       icon: Code2,
     },
     {
       id: "03",
       title: "Product Design",
-      tagline: "Intuitive systems people love using.",
+      tagline: "Disciplined visual systems that elevate your products.",
       description:
-        "Human-centered UI/UX design, rapid prototyping, and living design systems that bridge visual emotion with mechanical interface rigor.",
-      deliverables: ["UI/UX Design", "Interactive Prototypes", "Design Systems", "Usability Audits"],
+        "Transforming how your products and brand are showcased in the digital world. We design memorable logos, commercial posters, digital product showcases, and disciplined visual systems that establish immediate customer trust.",
+      deliverables: ["Logo & Brand Identity", "Digital Product Showcases", "Marketing Posters & Print", "Visual Design Systems"],
       icon: Layers,
     },
     {
       id: "04",
       title: "Architecture",
-      tagline: "Physical space design & commercial environments.",
+      tagline: "Feasible, attractive commercial shop & spatial design.",
       description:
-        "Commercial interiors, retail store layouts, physical space planning, and spatial experience. Designed by trained architectural discipline to connect physical spaces with digital workflows.",
-      deliverables: ["Retail Store Layouts", "Commercial Interiors", "Spatial Experience", "Built Environment Specs"],
+        "Led by landscape architectural expertise, we design physical commercial spaces and retail shops that are as practical and feasible as they are visually stunning. We optimize shop layouts, customer movement, and spatial aesthetics.",
+      deliverables: ["Retail & Shop Layouts", "Commercial Interior Styling", "Storefront & Facade Design", "Spatial Feasibility Planning"],
       icon: Building2,
     },
     {
       id: "05",
       title: "Marketing",
-      tagline: "Narratives that command attention.",
+      tagline: "Targeted digital campaigns & algorithmic growth.",
       description:
-        "Strategic brand identities, digital growth campaigns, content narratives, and launch marketing that turn initial curiosity into lasting customer loyalty.",
-      deliverables: ["Brand Identity", "Growth Campaigns", "Content Narrative", "Conversion Optimization"],
+        "When your brand, software, and physical space are set, we take it to market. We execute high-impact social media marketing, targeted ad campaigns, and algorithm-informed distribution to drive real sales.",
+      deliverables: ["Social Media Advertising", "Algorithm-Driven Campaigns", "Audience Targeting & Ads", "Multi-Platform Promotion"],
       icon: Megaphone,
     },
   ];
@@ -65,7 +65,7 @@ export function Services() {
             </h2>
           </div>
           <p className="max-w-md text-sm text-muted-foreground font-sans leading-relaxed">
-            From spatial store layouts to high-performance software — we combine multiple disciplines under one roof so you never have to mediate between five disconnected vendors.
+            From a brand logo and high-performance software to commercial shop styling and digital ad campaigns — we bring the essential tools of modern business growth under one roof.
           </p>
         </div>
 
@@ -140,7 +140,7 @@ export function Services() {
             <div>
               <div className="flex items-center justify-between border-b border-border/80 pb-4 mb-6">
                 <span className="font-mono text-xs font-bold text-primary uppercase">
-                  Case Study Highlight
+                  Studio Synergy Highlight
                 </span>
                 <span className="size-2 rounded-full bg-primary" />
               </div>
@@ -149,7 +149,7 @@ export function Services() {
                 The Retail Synergy
               </h3>
               <p className="text-xs text-muted-foreground leading-relaxed mb-4">
-                Imagine launching a retail store: Shadez designs the physical shop layout and interior customer experience, crafts the brand packaging, builds the e-commerce & POS systems, and drives the grand opening marketing campaign.
+                Imagine launching or revamping a commercial business: Shadez shapes the physical shop layout and interior customer experience, crafts the brand packaging, engineers the dynamic web presence with top-rank SEO, and launches the digital ad campaigns.
               </p>
             </div>
 
@@ -164,4 +164,3 @@ export function Services() {
     </section>
   );
 }
-
