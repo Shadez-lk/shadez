@@ -1,12 +1,21 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowRight, Mail, Phone, MapPin, Check, MessageSquare, AlertCircle, Loader2, Shield } from "lucide-react";
+import { ArrowRight, Mail, Phone, MapPin, Check, MessageSquare, AlertCircle, Loader2, Shield, Copy, CheckCheck } from "lucide-react";
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [copiedKey, setCopiedKey] = useState<string | null>(null);
+
+  const handleCopy = (text: string, key: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedKey(key);
+    setTimeout(() => {
+      setCopiedKey((curr) => (curr === key ? null : curr));
+    }, 2000);
+  };
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -103,13 +112,33 @@ export function Contact() {
                   <div className="size-8 bg-background border border-border flex items-center justify-center text-primary shrink-0 mt-0.5">
                     <Mail className="size-4" />
                   </div>
-                  <div>
-                    <div className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
-                      Studio Email
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
+                        Studio Email
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleCopy("believewave4u@gmail.com", "email")}
+                        className="inline-flex items-center gap-1 font-mono text-[10px] text-muted-foreground hover:text-primary transition-colors uppercase px-1.5 py-0.5 border border-border/80 bg-background"
+                        title="Copy Email Address"
+                      >
+                        {copiedKey === "email" ? (
+                          <>
+                            <CheckCheck className="size-3 text-primary" />
+                            <span className="text-primary font-bold">COPIED</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="size-2.5" />
+                            <span>COPY</span>
+                          </>
+                        )}
+                      </button>
                     </div>
                     <a
                       href="mailto:believewave4u@gmail.com"
-                      className="font-mono text-sm text-foreground hover:text-primary transition-colors font-bold"
+                      className="font-mono text-sm text-foreground hover:text-primary transition-colors font-bold block mt-0.5"
                     >
                       believewave4u@gmail.com
                     </a>
@@ -124,13 +153,33 @@ export function Contact() {
                   <div className="size-8 bg-background border border-border flex items-center justify-center text-primary shrink-0 mt-0.5">
                     <Phone className="size-4" />
                   </div>
-                  <div>
-                    <div className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
-                      Phone & WhatsApp
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
+                        Phone & WhatsApp
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleCopy("+94764346350", "phone")}
+                        className="inline-flex items-center gap-1 font-mono text-[10px] text-muted-foreground hover:text-primary transition-colors uppercase px-1.5 py-0.5 border border-border/80 bg-background"
+                        title="Copy Phone Number"
+                      >
+                        {copiedKey === "phone" ? (
+                          <>
+                            <CheckCheck className="size-3 text-primary" />
+                            <span className="text-primary font-bold">COPIED</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="size-2.5" />
+                            <span>COPY</span>
+                          </>
+                        )}
+                      </button>
                     </div>
                     <a
                       href="tel:+94764346350"
-                      className="font-mono text-sm text-foreground hover:text-primary transition-colors font-bold block"
+                      className="font-mono text-sm text-foreground hover:text-primary transition-colors font-bold block mt-0.5"
                     >
                       +94 76 434 6350
                     </a>
@@ -302,11 +351,32 @@ export function Contact() {
                     >
                       Primary Service Focus
                     </label>
+                    <div className="flex flex-wrap gap-1.5 mb-2">
+                      {[
+                        "Full-Spectrum Studio Suite",
+                        "Software & Web Engineering",
+                        "Commercial Shop & Spatial Architecture",
+                        "Brand Identity & Product Design",
+                      ].map((item) => (
+                        <button
+                          key={item}
+                          type="button"
+                          onClick={() => setFormData({ ...formData, serviceFocus: item })}
+                          className={`text-[10px] font-mono uppercase tracking-wider px-2 py-1 border transition-all ${
+                            formData.serviceFocus === item
+                              ? "border-primary bg-primary text-primary-foreground font-bold"
+                              : "border-border bg-background text-muted-foreground hover:text-foreground hover:border-border/80"
+                          }`}
+                        >
+                          {item}
+                        </button>
+                      ))}
+                    </div>
                     <select
                       id="serviceFocus"
                       value={formData.serviceFocus}
                       onChange={(e) => setFormData({ ...formData, serviceFocus: e.target.value })}
-                      className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground focus:outline-none focus:border-primary transition-colors font-sans"
+                      className="w-full bg-background border border-border px-4 py-2.5 text-xs text-foreground focus:outline-none focus:border-primary transition-colors font-sans"
                     >
                       <option value="Full-Spectrum Studio Suite">Full-Spectrum Suite (Physical + Digital)</option>
                       <option value="Software & Web Engineering">Software & Web Engineering (#1 SEO)</option>
@@ -325,11 +395,32 @@ export function Contact() {
                   >
                     Target Execution Timeline
                   </label>
+                  <div className="flex flex-wrap gap-1.5 mb-2">
+                    {[
+                      { key: "Immediate (< 1 month)", label: "Immediate (< 1 mo)" },
+                      { key: "1-3 months", label: "Standard (1-3 mos)" },
+                      { key: "3-6 months", label: "Phased (3-6 mos)" },
+                      { key: "Exploratory / Discovery Stage", label: "Discovery" },
+                    ].map((item) => (
+                      <button
+                        key={item.key}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, timeline: item.key })}
+                        className={`text-[10px] font-mono uppercase tracking-wider px-2 py-1 border transition-all ${
+                          formData.timeline === item.key
+                            ? "border-primary bg-primary text-primary-foreground font-bold"
+                            : "border-border bg-background text-muted-foreground hover:text-foreground hover:border-border/80"
+                        }`}
+                      >
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
                   <select
                     id="timeline"
                     value={formData.timeline}
                     onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                    className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground focus:outline-none focus:border-primary transition-colors font-sans"
+                    className="w-full bg-background border border-border px-4 py-2.5 text-xs text-foreground focus:outline-none focus:border-primary transition-colors font-sans"
                   >
                     <option value="Immediate (< 1 month)">Immediate Launch (&lt; 1 month)</option>
                     <option value="1-3 months">Standard Progression (1–3 months)</option>

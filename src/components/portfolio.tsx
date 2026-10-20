@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { ExternalLink, CheckCircle2, Search, Globe, Sparkles } from "lucide-react";
+import { ExternalLink, CheckCircle2, Globe, Sparkles } from "lucide-react";
+import { SerpTerminal } from "./serp-terminal";
 
 type ProjectCategory = "all" | "digital" | "brand" | "architecture";
 
@@ -175,42 +176,8 @@ export function Portfolio() {
               </div>
 
               {/* Right Side: Visual Search Proof Terminal */}
-              <div className="lg:col-span-5 border border-border bg-background p-5 sm:p-6">
-                <div className="flex items-center justify-between border-b border-border pb-3 mb-4 text-xs font-mono text-muted-foreground">
-                  <span className="flex items-center gap-1.5 text-foreground font-semibold">
-                    <Search className="size-3.5 text-primary" />
-                    <span>Google Search Simulation</span>
-                  </span>
-                  <span>SERP RESULT 01</span>
-                </div>
-
-                <div className="space-y-3 font-sans">
-                  <div className="text-xs text-muted-foreground font-mono flex items-center gap-1">
-                    <span>https://madeenawarriors2k18.vercel.app</span>
-                  </div>
-                  <div className="text-base sm:text-lg font-semibold text-primary hover:underline cursor-pointer">
-                    Madeena Warriors | Batch 2018
-                  </div>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    Official website of Madeena Warriors 2018 — the first O/L batch of KM Maruthamunai Al-Madeena Vidyalaya, Ampara, Sri Lanka. Explore batch members, memories...
-                  </p>
-
-                  <div className="pt-3 border-t border-border/60 grid grid-cols-2 gap-2 text-xs font-mono text-foreground">
-                    <div className="p-2 border border-border/60 bg-card">
-                      <div className="text-primary font-bold">Najmul Fowz</div>
-                      <div className="text-[10px] text-muted-foreground">Batch Archive Directory</div>
-                    </div>
-                    <div className="p-2 border border-border/60 bg-card">
-                      <div className="text-primary font-bold">Safa Ahamed</div>
-                      <div className="text-[10px] text-muted-foreground">Community Profile Record</div>
-                    </div>
-                  </div>
-
-                  <div className="pt-2 text-[10px] font-mono text-muted-foreground flex items-center gap-1">
-                    <Sparkles className="size-3 text-primary" />
-                    <span>Included in Google AI Overview entity index</span>
-                  </div>
-                </div>
+              <div className="lg:col-span-5">
+                <SerpTerminal />
               </div>
             </div>
           </div>

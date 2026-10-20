@@ -161,6 +161,45 @@ All AI agents working on Shadez web interfaces must adhere strictly to these 4 p
    - Prioritize real-world verified proof (such as the live `#1 Google Search Rank` for Madeena Warriors) with high visual prominence.
    - Regularly audit spacing rhythm, hairline alignment, and keyboard accessibility.
 
+---
+
+## 9. The Expensive-UI Swipe File: 5 Premium React Libraries
+
+To elevate Shadez web interfaces into cinematic, highly tactile, and expensive-feeling experiences without compromising Swiss architectural discipline, agents reference and leverage these 5 curated component ecosystems:
+
+1. **Componentry (`componentry.dev`) — Cinematic Visual Moments:**
+   - **Specialty:** Hero sections, portfolio visual anchors, kinetic typographic reveals, and cinematic scroll choreography.
+   - **Key Treatments:** Liquid-glass carousels, particle/split-text typography, interactive 3D stacks, and WebGL depth treatments.
+   - **Application in Shadez:** Hero section headline reveal, dynamic interactive architectural viewport, and high-impact case study hero cards.
+
+2. **Space UI (`spaceui.one`) — Expressive Motion & Tactile Controls:**
+   - **Specialty:** Cursor-reactive motion, tactile physics, micro-interactions, and living controls.
+   - **Key Treatments:** Liquid switches, morphing controls, animated loaders, shaders, sliders, and gooey tactile feedback.
+   - **Application in Shadez:** Interactive discipline toggles, interactive inquiry sliders, and tactile magnetic button interactions.
+
+3. **Skecher UI (`skecher-ui.com`) — Living Micro-Interactions & Nav:**
+   - **Specialty:** Adding micro-motion to otherwise static screens to eliminate stiffness.
+   - **Key Treatments:** Morphing navigation bars, gooey floating toolbars, liquid-glass surface reflections, and live status indicators.
+   - **Application in Shadez:** Floating architectural header, dynamic breadcrumbs, live commission availability status, and smooth disclosure panels.
+
+4. **Planes (`useplanes.com`) — Agent-Readable Production Components:**
+   - **Specialty:** Editable React components engineered with TypeScript, Tailwind CSS, and Motion, with native MCP and `llms.txt` support for AI agents.
+   - **Key Treatments:** High-utility layout primitives, interactive card stacks, animated marquees, and specification grids.
+   - **Application in Shadez:** Clean, copy-paste editable architecture that AI agents can inspect, adjust, and compose seamlessly within existing codebases.
+
+5. **Arc UI (`uiarc.dev`) — Polished Dashboards & Product Blocks:**
+   - **Specialty:** Finished-feeling interfaces with consistent design tokens, loading states, and true interaction behavior.
+   - **Key Treatments:** Data tables, settings consoles, metric terminals, and realistic interaction states installed directly as source code.
+   - **Application in Shadez:** The Architectural Duality Terminal, Google SERP Proof Terminal, and Project Commission Inquiry Terminal.
+
+### Layering Strategy for Shadez Implementations:
+- **Layer 1 (Structure & Blueprint):** Use **Componentry** or **Arc UI** patterns for high-contrast structural layouts and hero anchors.
+- **Layer 2 (Tactile Polish & Feedback):** Layer **Space UI** or **Skecher UI** micro-interactions on buttons, switches, tabs, and hover states.
+- **Layer 3 (Agent Rigor & Maintainability):** Reference **Planes** conventions (clean TypeScript + Tailwind v4 + Motion) so all components stay 100% editable, typed, and local.
+- **Strict Rule:** Always map external component colors and radii to the Shadez design tokens (Obsidian `#171717`, Industrial Orange `#F25623`, Graphite `#4D4D4D`, Clean Slate `#DEDEDE`, zero ungrounded purple gradients).
+
+
+
 
 <!-- BEGIN:nextjs-agent-rules -->
 
