@@ -20,18 +20,19 @@ export function Navigation() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/80 bg-background/90 backdrop-blur-md transition-colors">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Brand Logo with Image Monogram */}
-        <BrandLogo showTagline={true} size="md" />
+        {/* Brand Logo with Trademark Monogram */}
+        <BrandLogo size="md" />
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8 text-sm">
+        <nav className="hidden md:flex items-center gap-7 text-sm">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-muted-foreground hover:text-foreground font-mono text-xs uppercase tracking-wider transition-colors duration-200"
+              className="group relative py-1 text-muted-foreground hover:text-foreground font-mono text-xs uppercase tracking-wider transition-colors duration-200"
             >
-              {link.label}
+              <span>{link.label}</span>
+              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-primary transition-all duration-200 group-hover:w-full" />
             </Link>
           ))}
         </nav>
@@ -41,13 +42,16 @@ export function Navigation() {
           <ThemeToggle showLabel={true} />
 
           <div className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-muted-foreground border-l border-border pl-5">
-            <span className="size-2 rounded-full bg-primary animate-pulse" />
+            <span className="relative flex size-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+              <span className="relative inline-flex rounded-full size-2 bg-primary" />
+            </span>
             <span>Maruthamunai, LK</span>
           </div>
 
           <Link
             href="#contact"
-            className="group inline-flex items-center gap-2 rounded-none bg-primary px-4 py-2 text-xs font-mono uppercase tracking-wider text-primary-foreground transition-all duration-200 hover:bg-brand-orange-hover"
+            className="group inline-flex items-center gap-2 rounded-none bg-primary px-4 py-2 text-xs font-mono uppercase tracking-wider text-primary-foreground font-bold transition-all duration-200 hover:bg-brand-orange-hover hover:translate-y-[-1px] active:translate-y-0 shadow-sm"
           >
             <span>Scale Yours</span>
             <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

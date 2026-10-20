@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowUpRight, CornerDownRight, MessageSquare, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, CornerDownRight, MessageSquare } from "lucide-react";
+import { HeroDualityController } from "./hero-duality-controller";
 
 export function Hero() {
   const disciplines = [
@@ -133,76 +134,7 @@ export function Hero() {
 
           {/* Right Visual Column: Studio Specification Terminal */}
           <div className="lg:col-span-5 relative">
-            <div className="relative border border-border bg-card p-6 sm:p-8 backdrop-blur-sm shadow-xl shadow-black/5">
-              {/* Corner Registration Ticks */}
-              <span className="absolute -top-1.5 -left-1.5 text-primary font-mono text-xs select-none">┌</span>
-              <span className="absolute -top-1.5 -right-1.5 text-primary font-mono text-xs select-none">┐</span>
-              <span className="absolute -bottom-1.5 -left-1.5 text-primary font-mono text-xs select-none">└</span>
-              <span className="absolute -bottom-1.5 -right-1.5 text-primary font-mono text-xs select-none">┘</span>
-
-              {/* Terminal Header */}
-              <div className="flex items-center justify-between border-b border-border pb-4 mb-6">
-                <div className="flex items-center gap-2">
-                  <span className="size-2 rounded-full bg-primary" />
-                  <span className="font-mono text-xs uppercase tracking-wider text-foreground font-bold">
-                    DUALITY SPECIFICATION
-                  </span>
-                </div>
-                <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">
-                  REV 2026.01
-                </span>
-              </div>
-
-              {/* Specification Table */}
-              <div className="space-y-5">
-                <div>
-                  <div className="flex items-center justify-between font-mono text-xs text-primary font-bold uppercase mb-1.5">
-                    <span>01 / Physical & Spatial</span>
-                    <span className="text-muted-foreground font-normal text-[10px]">Architecture Lead</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground font-sans leading-relaxed mb-2">
-                    Commercial shop layouts, customer circulation ergonomics, storefront façades, and physical brand touchpoints.
-                  </p>
-                  <div className="font-mono text-[11px] text-foreground bg-background border border-border/80 px-3 py-1.5">
-                    Deliverable: Feasible, attractive retail spaces ready for build
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-center py-1">
-                  <span className="font-mono text-[10px] text-muted-foreground/70 uppercase tracking-widest border-y border-border/60 py-1 px-4 w-full text-center">
-                    + BRIDGED UNDER ONE STUDIO ROOF +
-                  </span>
-                </div>
-
-                <div>
-                  <div className="flex items-center justify-between font-mono text-xs text-primary font-bold uppercase mb-1.5">
-                    <span>02 / Digital & Performance</span>
-                    <span className="text-muted-foreground font-normal text-[10px]">Computer Eng Lead</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground font-sans leading-relaxed mb-2">
-                    High-speed dynamic Next.js web applications, top-tier Google search visibility, and algorithmic social ads.
-                  </p>
-                  <div className="font-mono text-[11px] text-foreground bg-background border border-border/80 px-3 py-1.5">
-                    Deliverable: #1 Google SEO rank & measurable customer conversion
-                  </div>
-                </div>
-              </div>
-
-              {/* Terminal Verified Proof Footer */}
-              <div className="mt-6 pt-4 border-t border-border space-y-2">
-                <div className="flex items-center justify-between text-[11px] font-mono">
-                  <span className="text-muted-foreground">STUDIO HUB</span>
-                  <span className="text-foreground font-semibold">Maruthamunai, Sri Lanka</span>
-                </div>
-                <div className="flex items-center justify-between text-[11px] font-mono">
-                  <span className="text-muted-foreground">VERIFIED SEO PROOF</span>
-                  <span className="text-primary font-bold inline-flex items-center gap-1">
-                    <CheckCircle2 className="size-3" />
-                    <span>#1 Google Search Rank</span>
-                  </span>
-                </div>
-              </div>
-            </div>
+            <HeroDualityController />
           </div>
         </div>
 

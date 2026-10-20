@@ -11,14 +11,13 @@ interface BrandLogoProps {
 
 export function BrandLogo({
   className = "",
-  showTagline = false,
   size = "md",
   variant = "icon",
 }: BrandLogoProps) {
   const iconDimensions = {
-    sm: { box: "size-7", imgSize: 36 },
-    md: { box: "size-9", imgSize: 46 },
-    lg: { box: "size-12", imgSize: 64 },
+    sm: { box: "size-7", imgSize: 28 },
+    md: { box: "size-9", imgSize: 36 },
+    lg: { box: "size-12", imgSize: 48 },
   };
 
   const textSizes = {
@@ -42,8 +41,8 @@ export function BrandLogo({
       >
         <div className="relative overflow-hidden flex items-center justify-center">
           <Image
-            src="/brand/shadez-cube-logo.jpg"
-            alt="shadez studio logo"
+            src="/brand/trademark_logo.png"
+            alt="Shadez logo"
             width={dim.width}
             height={dim.height}
             loading="eager"
@@ -61,33 +60,26 @@ export function BrandLogo({
       href="/"
       className={`group inline-flex items-center gap-3 transition-opacity hover:opacity-90 ${className}`}
     >
-      {/* Isometric Cube Monogram from Image */}
+      {/* Trademark Isometric Cube Monogram */}
       <div
         suppressHydrationWarning
         className={`relative ${currentDim.box} shrink-0 overflow-hidden flex items-center justify-center rounded-none`}
       >
         <Image
-          src="/brand/shadez-cube-logo.jpg"
-          alt="shadez monogram"
+          src="/brand/trademark_logo.png"
+          alt="Shadez monogram"
           width={currentDim.imgSize}
           height={currentDim.imgSize}
           loading="eager"
-          className="brand-cube-image object-cover -translate-y-[8%] scale-[1.35] transition-transform duration-300 group-hover:scale-[1.42]"
+          className="brand-cube-image object-contain transition-transform duration-300 group-hover:scale-110"
         />
       </div>
 
-      <div className="flex flex-col">
-        <span
-          className={`font-display font-bold tracking-tight lowercase text-foreground leading-none ${textSizes[size]}`}
-        >
-          shadez
-        </span>
-        {showTagline && (
-          <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-sans mt-0.5">
-            studio
-          </span>
-        )}
-      </div>
+      <span
+        className={`font-display font-bold tracking-tight text-foreground leading-none ${textSizes[size]}`}
+      >
+        Shadez
+      </span>
     </Link>
   );
 }
