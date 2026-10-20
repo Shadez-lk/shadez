@@ -19,7 +19,7 @@ export default function NotFound() {
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <header className="border-b border-border bg-card/50 backdrop-blur-md px-4 py-4 sm:px-8">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
-          <BrandLogo size="md" showTagline />
+          <BrandLogo size="md" />
           <Link
             href="/"
             className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors"

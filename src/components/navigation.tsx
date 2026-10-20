@@ -20,8 +20,8 @@ export function Navigation() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/80 bg-background/90 backdrop-blur-md transition-colors">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Brand Logo with Image Monogram */}
-        <BrandLogo showTagline={true} size="md" />
+        {/* Brand Logo with Trademark Monogram */}
+        <BrandLogo size="md" />
 
         {/* Desktop Navigation Links */}
         <nav className="hidden md:flex items-center gap-7 text-sm">

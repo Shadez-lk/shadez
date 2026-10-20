@@ -64,7 +64,7 @@ export function Footer() {
                 Location & Direct Channels
               </div>
               <p className="text-xs font-mono text-muted-foreground leading-relaxed mb-4">
-                Shadez Studio<br />
+                Shadez<br />
                 Maruthamunai, Eastern Province<br />
                 Sri Lanka (UTC+05:30)<br />
                 <a href="mailto:believewave4u@gmail.com" className="hover:text-primary transition-colors">believewave4u@gmail.com</a><br />
@@ -115,7 +115,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-muted-foreground">
           <div>
-            © {currentYear} shadez studio. All rights reserved. Built with Next.js & continuous integration.
+            © {currentYear} Shadez. All rights reserved. Built with Next.js & continuous integration.
           </div>
           <div className="flex items-center gap-4">
             <ThemeToggle showLabel={true} />
