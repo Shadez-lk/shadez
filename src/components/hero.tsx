@@ -1,37 +1,42 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, CornerDownRight } from "lucide-react";
+import { ArrowUpRight, CornerDownRight, MessageSquare, CheckCircle2 } from "lucide-react";
 
 export function Hero() {
   const disciplines = [
     {
       num: "01",
       name: "Strategy",
-      desc: "Actionable growth roadmaps & modern market gap analysis.",
+      role: "Growth Roadmaps",
+      desc: "Market gap analysis and digital modernization for emerging enterprises.",
       href: "#services",
     },
     {
       num: "02",
       name: "Software",
-      desc: "Dynamic web engineering & top-rank Google search visibility.",
+      role: "Web Engineering",
+      desc: "High-speed dynamic web applications engineered for #1 Google SEO rank.",
       href: "#services",
     },
     {
       num: "03",
       name: "Product Design",
-      desc: "Disciplined visual systems, logos, posters & digital showcases.",
+      role: "Visual Systems",
+      desc: "Disciplined brand identities, memorable logos, and digital product showcases.",
       href: "#services",
     },
     {
       num: "04",
       name: "Architecture",
-      desc: "Feasible commercial shop layouts & spatial landscape design.",
+      role: "Spatial Design",
+      desc: "Attractive commercial shop layouts, customer flow, and physical styling.",
       href: "#services",
     },
     {
       num: "05",
       name: "Marketing",
-      desc: "Targeted social media ads & algorithm-informed campaigns.",
+      role: "Algorithmic Ads",
+      desc: "Targeted social media advertising and multi-channel campaign distribution.",
       href: "#services",
     },
   ];
@@ -39,132 +44,208 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border bg-background swiss-grid-pattern">
       {/* Decorative Technical Crosshairs */}
-      <div className="absolute top-8 left-8 text-muted-foreground/30 font-mono text-sm select-none pointer-events-none hidden sm:block">
+      <div className="absolute top-6 left-6 text-muted-foreground/30 font-mono text-sm select-none pointer-events-none hidden sm:block">
         +
       </div>
-      <div className="absolute top-8 right-8 text-muted-foreground/30 font-mono text-sm select-none pointer-events-none hidden sm:block">
+      <div className="absolute top-6 right-6 text-muted-foreground/30 font-mono text-sm select-none pointer-events-none hidden sm:block">
         +
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-28">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="mx-auto max-w-7xl px-4 pt-14 pb-16 sm:px-6 lg:px-8 lg:pt-20 lg:pb-24">
+        {/* Top Identification Anchor */}
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border/80 pb-4 mb-10">
+          <div className="inline-flex items-center gap-3">
+            <span className="font-mono text-xs uppercase tracking-widest text-primary font-bold">
+              01 / STUDIO MANIFESTO
+            </span>
+            <span className="h-px w-6 bg-border hidden sm:inline-block" />
+            <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest hidden sm:inline-block">
+              MARUTHAMUNAI, SRI LANKA • 2026 ACTIVE
+            </span>
+          </div>
+          <div className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+            WHAT WE ARE • WHO WE SERVE • HOW WE SCALE
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Main Manifesto Column */}
-          <div className="lg:col-span-8 flex flex-col gap-6">
-            {/* Architectural Section Label */}
-            <div className="inline-flex items-center gap-3">
-              <span className="font-mono text-xs uppercase tracking-widest text-primary font-bold">
-                01 / STUDIO MANIFESTO
-              </span>
-              <span className="h-px w-8 bg-border" />
-              <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest hidden sm:inline-block">
-                MARUTHAMUNAI • SRI LANKA
-              </span>
-            </div>
-
-            {/* Display Headline */}
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-display font-bold uppercase tracking-tight leading-[0.92] text-foreground">
+          <div className="lg:col-span-7 flex flex-col gap-6">
+            {/* Focal Point 1: Display Headline */}
+            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-display font-bold uppercase tracking-tight leading-[0.9] text-foreground">
               Different shades.
               <span className="block text-primary">One business.</span>
             </h1>
 
-            {/* Subtitle / Value proposition */}
-            <p className="max-w-2xl text-base sm:text-xl text-muted-foreground leading-relaxed font-sans font-light">
-              From a foundational logo, social media accounts, and customer channels, to modern websites and commercial store styling — Shadez brings every essential shade of business growth under one roof.
-            </p>
+            {/* Above-the-fold Question 1 & 2: What it is & Who it is for */}
+            <div className="space-y-3 pt-1">
+              <div className="font-mono text-xs sm:text-sm uppercase tracking-wider text-foreground font-semibold flex items-center gap-2">
+                <span className="size-2 bg-primary inline-block shrink-0" />
+                <span>All-in-One Digital Marketing, Web Engineering & Commercial Spatial Studio</span>
+              </div>
+              <p className="text-base sm:text-lg text-muted-foreground font-sans leading-relaxed">
+                Built for ambitious retail brands, growing enterprises, and founders who need a cohesive brand identity, a high-speed website with #1 Google ranking, and attractive commercial shop styling — without the friction of coordinating five disconnected agencies.
+              </p>
+            </div>
 
-            {/* Interactive CTAs */}
-            <div className="flex flex-wrap items-center gap-4 pt-4">
+            {/* Above-the-fold Question 3: Why it matters */}
+            <div className="border-l-2 border-primary/60 pl-4 py-1 text-xs sm:text-sm text-muted-foreground font-sans leading-relaxed">
+              <strong className="text-foreground font-medium font-mono text-xs uppercase tracking-wide block mb-1">
+                The Disjointed Agency Problem: Solved.
+              </strong>
+              Traditional growth is fragmented: one freelancer designs a logo, another codes a generic site, and no one plans your physical retail layout. Shadez connects computer engineering rigor, landscape architecture, and algorithmic marketing into a single load-bearing growth engine.
+            </div>
+
+            {/* Focal Point 2 & Question 4: What to do next (Dominant Primary CTA) */}
+            <div className="pt-2 flex flex-col sm:flex-row sm:items-center gap-4">
               <Link
                 href="#contact"
-                className="group inline-flex items-center gap-3 bg-primary px-6 py-3.5 text-xs font-mono uppercase tracking-widest text-primary-foreground font-semibold transition-all duration-200 hover:bg-brand-orange-hover shadow-lg shadow-primary/10"
+                className="group inline-flex items-center justify-center gap-3 bg-primary h-13 px-8 text-xs font-mono uppercase tracking-widest text-primary-foreground font-bold transition-all duration-200 hover:bg-brand-orange-hover hover:translate-y-[-2px] hover:shadow-xl hover:shadow-primary/20 active:translate-y-0"
               >
-                <span>Scale Yours</span>
-                <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
+                <span>Scale Your Brand</span>
+                <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
 
               <Link
                 href="#work"
-                className="inline-flex items-center gap-2 border border-border bg-card/60 backdrop-blur-sm px-6 py-3.5 text-xs font-mono uppercase tracking-widest text-foreground transition-colors duration-200 hover:border-primary/60 hover:bg-card"
+                className="inline-flex items-center justify-center gap-2 border border-border bg-card/80 backdrop-blur-sm h-13 px-6 text-xs font-mono uppercase tracking-widest text-foreground transition-all duration-200 hover:border-primary/60 hover:bg-card"
               >
-                <span>Explore our work</span>
+                <span>Explore Verified Work</span>
                 <CornerDownRight className="size-3.5 text-primary" />
               </Link>
             </div>
+
+            {/* Fast direct access trigger */}
+            <div className="flex items-center gap-4 text-xs font-mono text-muted-foreground pt-1">
+              <a
+                href="https://wa.me/94764346350"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
+              >
+                <MessageSquare className="size-3.5 text-primary" />
+                <span>Quick WhatsApp Inquiry: +94 76 434 6350</span>
+              </a>
+              <span className="text-border">•</span>
+              <span className="text-foreground font-medium">24h Direct Founder SLA</span>
+            </div>
           </div>
 
-          {/* Right Visual Panel: Swiss Architectural Board */}
-          <div className="lg:col-span-4 relative">
-            <div className="relative border border-border bg-card p-6 lg:p-8 backdrop-blur-sm">
+          {/* Right Visual Column: Studio Specification Terminal */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative border border-border bg-card p-6 sm:p-8 backdrop-blur-sm shadow-xl shadow-black/5">
               {/* Corner Registration Ticks */}
               <span className="absolute -top-1.5 -left-1.5 text-primary font-mono text-xs select-none">┌</span>
               <span className="absolute -top-1.5 -right-1.5 text-primary font-mono text-xs select-none">┐</span>
               <span className="absolute -bottom-1.5 -left-1.5 text-primary font-mono text-xs select-none">└</span>
               <span className="absolute -bottom-1.5 -right-1.5 text-primary font-mono text-xs select-none">┘</span>
 
+              {/* Terminal Header */}
               <div className="flex items-center justify-between border-b border-border pb-4 mb-6">
-                <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-                  DUALITY SYSTEM / 01
+                <div className="flex items-center gap-2">
+                  <span className="size-2 rounded-full bg-primary" />
+                  <span className="font-mono text-xs uppercase tracking-wider text-foreground font-bold">
+                    DUALITY SPECIFICATION
+                  </span>
+                </div>
+                <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">
+                  REV 2026.01
                 </span>
-                <span className="size-2 rounded-full bg-primary" />
               </div>
 
-              {/* Brand + Digital Platform Synergy Callout */}
-              <div className="space-y-4">
-                <div className="border border-border/80 bg-background/60 p-4">
-                  <div className="font-mono text-xs text-primary font-semibold uppercase mb-1">
-                    Brand & Creative Systems
+              {/* Specification Table */}
+              <div className="space-y-5">
+                <div>
+                  <div className="flex items-center justify-between font-mono text-xs text-primary font-bold uppercase mb-1.5">
+                    <span>01 / Physical & Spatial</span>
+                    <span className="text-muted-foreground font-normal text-[10px]">Architecture Lead</span>
                   </div>
-                  <p className="text-xs text-muted-foreground font-sans">
-                    Logos, social media presence, visual identity, and brand storytelling.
+                  <p className="text-xs text-muted-foreground font-sans leading-relaxed mb-2">
+                    Commercial shop layouts, customer circulation ergonomics, storefront façades, and physical brand touchpoints.
                   </p>
+                  <div className="font-mono text-[11px] text-foreground bg-background border border-border/80 px-3 py-1.5">
+                    Deliverable: Feasible, attractive retail spaces ready for build
+                  </div>
                 </div>
 
-                <div className="flex items-center justify-center my-1">
-                  <span className="font-mono text-xs text-muted-foreground/60 tracking-widest uppercase">
-                    + UNIFIED UNDER SHADEZ +
+                <div className="flex items-center justify-center py-1">
+                  <span className="font-mono text-[10px] text-muted-foreground/70 uppercase tracking-widest border-y border-border/60 py-1 px-4 w-full text-center">
+                    + BRIDGED UNDER ONE STUDIO ROOF +
                   </span>
                 </div>
 
-                <div className="border border-border/80 bg-background/60 p-4">
-                  <div className="font-mono text-xs text-primary font-semibold uppercase mb-1">
-                    Growth Platforms & Spatial Design
+                <div>
+                  <div className="flex items-center justify-between font-mono text-xs text-primary font-bold uppercase mb-1.5">
+                    <span>02 / Digital & Performance</span>
+                    <span className="text-muted-foreground font-normal text-[10px]">Computer Eng Lead</span>
                   </div>
-                  <p className="text-xs text-muted-foreground font-sans">
-                    Dynamic web systems, top-rank SEO, and attractive commercial shop styling.
+                  <p className="text-xs text-muted-foreground font-sans leading-relaxed mb-2">
+                    High-speed dynamic Next.js web applications, top-tier Google search visibility, and algorithmic social ads.
                   </p>
+                  <div className="font-mono text-[11px] text-foreground bg-background border border-border/80 px-3 py-1.5">
+                    Deliverable: #1 Google SEO rank & measurable customer conversion
+                  </div>
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-[11px] font-mono text-muted-foreground">
-                <span>FOUNDED IN MARUTHAMUNAI</span>
-                <span className="text-foreground">2026 / ACTIVE</span>
+              {/* Terminal Verified Proof Footer */}
+              <div className="mt-6 pt-4 border-t border-border space-y-2">
+                <div className="flex items-center justify-between text-[11px] font-mono">
+                  <span className="text-muted-foreground">STUDIO HUB</span>
+                  <span className="text-foreground font-semibold">Maruthamunai, Sri Lanka</span>
+                </div>
+                <div className="flex items-center justify-between text-[11px] font-mono">
+                  <span className="text-muted-foreground">VERIFIED SEO PROOF</span>
+                  <span className="text-primary font-bold inline-flex items-center gap-1">
+                    <CheckCircle2 className="size-3" />
+                    <span>#1 Google Search Rank</span>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* 5 Discipline Ticker Cards */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border-t border-l border-border">
-          {disciplines.map((item) => (
-            <Link
-              key={item.num}
-              href={item.href}
-              className="group border-r border-b border-border p-5 transition-all duration-200 hover:bg-card/90 hover:border-primary/50 relative"
-            >
-              <div className="flex items-center justify-between font-mono text-xs mb-3 text-muted-foreground">
-                <span className="text-primary font-semibold">{item.num} /</span>
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity text-primary">
-                  →
-                </span>
-              </div>
-              <h3 className="font-display text-lg font-bold uppercase text-foreground mb-1 group-hover:text-primary transition-colors">
-                {item.name}
-              </h3>
-              <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2 font-sans">
-                {item.desc}
-              </p>
-            </Link>
-          ))}
+        {/* 5 Discipline Strip: Precision Architectural Specification Bar */}
+        <div className="mt-14 pt-8 border-t border-border">
+          <div className="flex items-center justify-between mb-4">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground font-semibold">
+              The 5 Core Disciplines
+            </span>
+            <span className="font-mono text-[11px] uppercase tracking-widest text-primary">
+              Full-Spectrum Execution ↓
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border-t border-l border-border bg-card">
+            {disciplines.map((item) => (
+              <Link
+                key={item.num}
+                href={item.href}
+                className="group border-r border-b border-border p-5 transition-all duration-200 hover:bg-background hover:border-primary/50 relative flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between font-mono text-xs mb-2 text-muted-foreground">
+                    <span className="text-primary font-bold">{item.num} /</span>
+                    <span className="font-mono text-[10px] uppercase text-muted-foreground group-hover:text-primary transition-colors">
+                      {item.role}
+                    </span>
+                  </div>
+                  <h3 className="font-display text-lg font-bold uppercase text-foreground mb-1.5 group-hover:text-primary transition-colors">
+                    {item.name}
+                  </h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed font-sans">
+                    {item.desc}
+                  </p>
+                </div>
+
+                <div className="mt-4 pt-3 border-t border-border/50 flex items-center justify-between text-[11px] font-mono text-muted-foreground group-hover:text-primary">
+                  <span>Explore discipline</span>
+                  <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>

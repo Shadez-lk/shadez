@@ -134,6 +134,33 @@ All pages, layouts, and components must follow the 5 core rule files in `SEO/`:
 5. **`ACCESSIBILITY.md`:** WCAG 2.2 AA compliant. Skip-to-main-content link, 3:1 visible focus rings, 4.5:1 contrast ratio, labeled forms, accessible touch targets (44×44px primary).
 6. **Reporting Protocol (`START-HERE.md`):** After every page addition or change, report the 8 verification points (URLs, Title/Meta, H1, LCP element, JSON-LD, Sitemap status, Image alt text, Open placeholders).
 
+---
+
+## 8. Anti-Slop Visual Hierarchy, Clarity & Layout Standards
+
+All AI agents working on Shadez web interfaces must adhere strictly to these 4 principles:
+
+1. **Above-the-Fold Clarity (The 4 Core Questions):**
+   - **What it is:** Clearly state the multidisciplinary studio model (Digital marketing, web engineering with top SEO, and commercial spatial design).
+   - **Who it is for:** Specifically qualify the audience (Ambitious retail brands, growing enterprises, and founders who refuse to manage 5 disconnected agencies).
+   - **Why it matters:** Clearly establish the contrast (Eliminating fragmented freelancers and agency bloat through unified digital + physical execution).
+   - **What to do next:** Deliver an unmissable, commanding primary CTA with high visual contrast and zero ambiguity.
+
+2. **Visual Hierarchy & Scanning Priority:**
+   - **Focal Point 1:** Authoritative display headline (`font-display`, uppercase, tight tracking, `leading-[0.9]`).
+   - **Focal Point 2:** Primary CTA button with commanding scale (52px height, prominent Industrial Orange `#F25623`, high contrast, confident micro-interactions).
+   - **Focal Point 3:** Value proposition deck and audience qualification statement.
+   - **Focal Point 4:** Architectural specification terminal and verified proof metrics.
+
+3. **Elimination of "AI Slop" & Generic Layouts:**
+   - **Zero Pill Soup:** Never spam rows of uniform pill tags (`px-2 py-1` badges). Replace with typographic lists, architectural specification tables, or clean hairline grids.
+   - **Zero Repetitive Card Grids:** Never repeat uniform 3-column or 5-column box grids across consecutive sections. Use asymmetric editorial compositions, split blueprints, and alternating visual weights.
+   - **Zero Generic Gradients & Glows:** Stick to the authentic Swiss architectural palette: Obsidian `#171717`, Industrial Orange `#F25623`, Graphite `#4D4D4D`, and Clean Slate `#DEDEDE`.
+
+4. **Continuous Quality & Defect Remediation:**
+   - Prioritize real-world verified proof (such as the live `#1 Google Search Rank` for Madeena Warriors) with high visual prominence.
+   - Regularly audit spacing rhythm, hairline alignment, and keyboard accessibility.
+
 
 <!-- BEGIN:nextjs-agent-rules -->
 
