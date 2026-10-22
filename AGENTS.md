@@ -18,10 +18,10 @@ All AI agents working in this repository must strictly adhere to the brand guide
   - *Example synergy:* For a retail client, Shadez can design the physical retail store layout, craft the brand identity, build the dynamic web presence with top-rank SEO, and execute the launch marketing campaign — all as one unified studio.
 
 - **The 5 Core Disciplines:**
-  1. `01 / Strategy` — Business growth roadmaps, market gap analysis, digital transformation, research-led planning.
-  2. `02 / Software` — High-speed dynamic web applications, top-tier Google search SEO, custom web engineering.
-  3. `03 / Product Design` — Disciplined visual systems, logo design, commercial posters, digital product showcases.
-  4. `04 / Architecture` — Physical architecture, commercial shop interiors, retail store planning, spatial design, and technical systems.
+  1. `01 / Software` — High-speed dynamic web applications, search engine discoverability, custom web engineering (Founding Lead: Computer Engineering).
+  2. `02 / Architecture` — Physical architecture, commercial shop interiors, retail store planning, spatial design, and technical systems (Founding Lead: Landscape Architecture).
+  3. `03 / Strategy` — Business growth roadmaps, market gap analysis, digital transformation, research-led planning.
+  4. `04 / Product Design` — Disciplined visual systems, logo design, commercial posters, digital product showcases.
   5. `05 / Marketing` — Social media advertising, algorithmic campaigns, audience targeting, growth execution.
 
 - **The Studio Process:**

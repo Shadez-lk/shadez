@@ -33,10 +33,10 @@ export default function NotFound() {
       <main className="flex-1 flex items-center justify-center p-6 relative overflow-hidden">
         {/* Architectural grid corner markers */}
         <div className="max-w-xl w-full border border-border bg-card p-8 sm:p-12 relative shadow-lg">
-          <span className="absolute -top-1.5 -left-1.5 text-primary font-mono text-xs select-none">┌</span>
-          <span className="absolute -top-1.5 -right-1.5 text-primary font-mono text-xs select-none">┐</span>
-          <span className="absolute -bottom-1.5 -left-1.5 text-primary font-mono text-xs select-none">└</span>
-          <span className="absolute -bottom-1.5 -right-1.5 text-primary font-mono text-xs select-none">┘</span>
+          <span aria-hidden="true" className="absolute -top-1.5 -left-1.5 text-primary font-mono text-xs select-none">┌</span>
+          <span aria-hidden="true" className="absolute -top-1.5 -right-1.5 text-primary font-mono text-xs select-none">┐</span>
+          <span aria-hidden="true" className="absolute -bottom-1.5 -left-1.5 text-primary font-mono text-xs select-none">└</span>
+          <span aria-hidden="true" className="absolute -bottom-1.5 -right-1.5 text-primary font-mono text-xs select-none">┘</span>
 
           <div className="font-mono text-xs uppercase tracking-widest text-primary font-bold mb-3">
             ERROR 404 / NOT FOUND

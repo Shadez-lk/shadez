@@ -22,12 +22,12 @@ export const SITE_URL =
 export const PAGES: Record<string, PageInfo> = {
   "/": {
     path: "/",
-    title: "shadez — Different shades. One business.",
+    title: "Shadez | Websites, Branding & Shop Design in Sri Lanka",
     description:
-      "Shadez is an all-in-one digital marketing and growth studio connecting strategy, software engineering, product design, physical architecture, and marketing. Founded in Maruthamunai, Sri Lanka.",
+      "Shadez is a Sri Lankan studio for websites, branding, shop interior design and social media ads, all from one team. Based in Maruthamunai.",
     h1: "Different shades. One business.",
     indexable: true,
-    lastModified: "2026-10-17",
+    lastModified: "2026-10-23",
     breadcrumbs: [{ name: "Home", path: "/" }],
   },
 };

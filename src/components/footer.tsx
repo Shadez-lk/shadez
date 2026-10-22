@@ -3,7 +3,6 @@
 import React from "react";
 import Link from "next/link";
 import { BrandLogo } from "./brand-logo";
-import { ThemeToggle } from "./theme-toggle";
 
 export function Footer() {
   const currentYear = 2026;
@@ -16,113 +15,106 @@ export function Footer() {
           <div className="md:col-span-5 flex flex-col gap-4">
             <BrandLogo size="lg" />
             <p className="text-sm text-muted-foreground font-sans max-w-sm leading-relaxed mt-2">
-              An all-in-one digital marketing and growth studio connecting strategy, software engineering, product design, physical architecture, and marketing. Founded in Maruthamunai, Sri Lanka.
+              A multidisciplinary studio in Maruthamunai, Sri Lanka. Connecting business strategy, web engineering, brand design, commercial spatial architecture, and targeted marketing.
             </p>
-            <div className="font-mono text-xs text-primary font-semibold tracking-wider uppercase mt-2">
+            <div className="font-mono text-xs text-primary font-semibold tracking-wider uppercase mt-1">
               Different shades. One business.
             </div>
           </div>
 
-          {/* Disciplines Col */}
+          {/* Disciplines Col (Section 3.7 & 5.1 Anchors) */}
           <div className="md:col-span-3">
             <div className="font-mono text-xs uppercase tracking-widest text-foreground font-bold mb-4">
               Disciplines
             </div>
-            <ul className="space-y-2 text-xs font-mono text-muted-foreground">
+            <ul className="space-y-2.5 text-xs font-mono text-muted-foreground">
               <li>
-                <Link href="#services" className="hover:text-primary transition-colors">
-                  01 / Strategy & Discovery
+                <Link href="#software" className="hover:text-primary transition-colors py-1 inline-block">
+                  01 / Websites & Software
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="hover:text-primary transition-colors">
-                  02 / Software Engineering
+                <Link href="#architecture" className="hover:text-primary transition-colors py-1 inline-block">
+                  02 / Shop & Interior Design
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="hover:text-primary transition-colors">
-                  03 / Product & UI/UX Design
+                <Link href="#strategy" className="hover:text-primary transition-colors py-1 inline-block">
+                  03 / Business Strategy
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="hover:text-primary transition-colors">
-                  04 / Commercial Shop Architecture
+                <Link href="#branding" className="hover:text-primary transition-colors py-1 inline-block">
+                  04 / Branding & Design
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="hover:text-primary transition-colors">
-                  05 / Algorithmic Digital Marketing
+                <Link href="#marketing" className="hover:text-primary transition-colors py-1 inline-block">
+                  05 / Social Media & Ads
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Navigation & Presence Col */}
+          {/* Navigation & Verified Presence Col */}
           <div className="md:col-span-4 flex flex-col justify-between">
             <div>
               <div className="font-mono text-xs uppercase tracking-widest text-foreground font-bold mb-4">
                 Location & Direct Channels
               </div>
               <p className="text-xs font-mono text-muted-foreground leading-relaxed mb-4">
-                Shadez<br />
+                Shadez Studio<br />
                 Maruthamunai, Eastern Province<br />
                 Sri Lanka (UTC+05:30)<br />
-                <a href="mailto:believewave4u@gmail.com" className="hover:text-primary transition-colors">believewave4u@gmail.com</a><br />
-                <a href="tel:+94764346350" className="hover:text-primary transition-colors">+94 76 434 6350</a>
+                <a href="mailto:believewave4u@gmail.com" className="hover:text-primary transition-colors py-0.5 inline-block">believewave4u@gmail.com</a><br />
+                <a href="tel:+94764346350" className="hover:text-primary transition-colors py-0.5 inline-block">+94 76 434 6350</a>
               </p>
             </div>
 
+            {/* Social channels (Section 2.5: Removed broken generic links) */}
             <div className="flex items-center gap-4 text-xs font-mono text-muted-foreground">
               <a
                 href="https://github.com/Shadez-lk"
                 target="_blank"
-                rel="noreferrer"
-                className="hover:text-primary transition-colors"
+                rel="noopener noreferrer"
+                aria-label="Shadez on GitHub"
+                className="hover:text-primary transition-colors min-h-[44px] flex items-center"
               >
                 GitHub
               </a>
-              <span>•</span>
+              <span className="text-border" aria-hidden="true">•</span>
               <a
-                href="https://linkedin.com"
+                href="https://wa.me/94764346350?text=Hi%20Shadez%2C%20I%27d%20like%20to%20discuss%20a%20project."
                 target="_blank"
-                rel="noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                LinkedIn
-              </a>
-              <span>•</span>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                Instagram
-              </a>
-              <span>•</span>
-              <a
-                href="https://wa.me/94764346350"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-primary transition-colors"
+                rel="noopener noreferrer"
+                aria-label="Chat with Shadez on WhatsApp"
+                className="hover:text-primary transition-colors min-h-[44px] flex items-center"
               >
                 WhatsApp
+              </a>
+              <span className="text-border" aria-hidden="true">•</span>
+              <a
+                href="#privacy"
+                className="hover:text-primary transition-colors min-h-[44px] flex items-center"
+              >
+                Privacy Policy
               </a>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-muted-foreground">
+        {/* Bottom Bar (Section 3.9: Clean single footer bar with Back to Top) */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-muted-foreground">
           <div>
-            © {currentYear} Shadez. All rights reserved. Built with Next.js & continuous integration.
+            © {currentYear} Shadez. All rights reserved.
           </div>
           <div className="flex items-center gap-4">
-            <ThemeToggle showLabel={true} />
-            <span>•</span>
-            <span>THINK. BUILD.</span>
-            <span>•</span>
-            <span className="text-primary font-semibold">MAKE A MARK.</span>
+            <a
+              href="#main-content"
+              className="hover:text-primary transition-colors min-h-[44px] flex items-center"
+            >
+              Back to top ↑
+            </a>
           </div>
         </div>
       </div>

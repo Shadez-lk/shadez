@@ -4,8 +4,11 @@ import { Services } from "@/components/services";
 import { Process } from "@/components/process";
 import { Portfolio } from "@/components/portfolio";
 import { About } from "@/components/about";
+import { FAQ } from "@/components/faq";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
+import { FloatingWhatsApp } from "@/components/floating-whatsapp";
+import { PrivacyModal } from "@/components/privacy-modal";
 import { JsonLd, getHomePageSchema } from "@/lib/schema";
 
 /**
@@ -28,9 +31,12 @@ export default function Home() {
         <Process />
         <Portfolio />
         <About />
+        <FAQ />
         <Contact />
       </main>
       <Footer />
+      <FloatingWhatsApp />
+      <PrivacyModal />
     </div>
   );
 }
