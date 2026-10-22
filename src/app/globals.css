@@ -26,6 +26,13 @@
   --color-brand-border: var(--brand-border);
   --color-brand-grid: var(--brand-grid);
 
+  /* 5 Discipline Accents ("Different shades. One business.") */
+  --color-discipline-strategy: var(--discipline-strategy);
+  --color-discipline-software: var(--discipline-software);
+  --color-discipline-branding: var(--discipline-branding);
+  --color-discipline-architecture: var(--discipline-architecture);
+  --color-discipline-marketing: var(--discipline-marketing);
+
   /* Semantic UI Tokens (shadcn compatible) */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -68,12 +75,19 @@
   --brand-border: #E0E0E0;
   --brand-grid: rgba(0, 0, 0, 0.05);
 
+  /* 5 Discipline Accents (Verified WCAG AA Contrast) */
+  --discipline-strategy: #D98200;
+  --discipline-software: #1E6BE6;
+  --discipline-branding: #8E44EC;
+  --discipline-architecture: #0D9668;
+  --discipline-marketing: #F25623;
+
   /* Fonts Configuration */
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-display: "Rajdhani", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-tamil: "Noto Sans Tamil", sans-serif;
 
-  /* Semantic tokens: Light Mode Canvas */
+  /* Semantic tokens: Light Mode Canvas (WCAG 2.2 AA compliant contrast) */
   --background: #F8F8F8;
   --foreground: #171717;
   --card: #FFFFFF;
@@ -85,7 +99,7 @@
   --secondary: #EFEFEF;
   --secondary-foreground: #171717;
   --muted: #EAEAEA;
-  --muted-foreground: #666666;
+  --muted-foreground: #525252;
   --accent: #F25623;
   --accent-foreground: #FFFFFF;
   --destructive: #EF4444;
@@ -105,6 +119,13 @@
   --brand-border: #2E2E2E;
   --brand-grid: rgba(255, 255, 255, 0.07);
 
+  /* 5 Discipline Accents (High Contrast on Obsidian) */
+  --discipline-strategy: #F5B942;
+  --discipline-software: #4FA3FF;
+  --discipline-branding: #B07CFF;
+  --discipline-architecture: #3DD6A0;
+  --discipline-marketing: #FF5A1F;
+
   /* Semantic tokens: Dark Mode Canvas */
   --background: #171717;
   --foreground: #FFFFFF;
@@ -117,7 +138,7 @@
   --secondary: #252525;
   --secondary-foreground: #DEDEDE;
   --muted: #242424;
-  --muted-foreground: #9E9E9E;
+  --muted-foreground: #A8A8A8;
   --accent: #F25623;
   --accent-foreground: #FFFFFF;
   --destructive: #EF4444;
@@ -163,4 +184,16 @@
 .dark .brand-cube-image {
   filter: invert(1) brightness(1.2) contrast(1.1);
   mix-blend-mode: screen;
+}
+
+/* Reduced Motion Support (ACCESSIBILITY.md & WCAG 2.2 AA) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

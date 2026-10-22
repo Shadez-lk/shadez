@@ -5,60 +5,65 @@ import { ArrowUpRight, Code2, Building2, Compass, Layers, Megaphone, Check } fro
 export function Services() {
   const primaryDual = [
     {
-      id: "02",
-      title: "Software & Web Systems",
-      discipline: "Digital & Engineering Core",
-      lead: "Led by Computer Engineering Rigor",
-      tagline: "Dynamic web applications engineered for #1 Google search ranking.",
+      id: "01",
+      slug: "software",
+      title: "Websites & Software",
+      discipline: "Web & Software Engineering",
+      lead: "Led by Computer Engineering Lead",
+      tagline: "Fast, search-friendly web apps built with Next.js.",
       description:
-        "We build high-speed, dynamic web platforms and custom digital systems designed not merely to exist, but to dominate Google search results and convert visitors into long-term clients.",
+        "We build high-speed web platforms with clean structure, fast load times and proper metadata so search engines can find and understand your site, converting visitors into customers.",
       deliverables: [
-        "Dynamic Next.js Web Engineering",
-        "Top-Tier Google SEO Architecture",
+        "Modern Next.js 16 Web Engineering",
+        "Search-Friendly Web Architecture & Schema",
         "Custom APIs & System Integrations",
-        "High-Velocity Core Web Vitals Optimization",
+        "Fast Page Speed (Core Web Vitals Optimized)",
       ],
       icon: Code2,
-      accent: true,
+      accentColor: "#4FA3FF",
     },
     {
-      id: "04",
-      title: "Architecture & Spatial Design",
-      discipline: "Physical & Spatial Core",
-      lead: "Led by Landscape Architecture Discipline",
+      id: "02",
+      slug: "architecture",
+      title: "Shop & Interior Design",
+      discipline: "Physical & Spatial Architecture",
+      lead: "Led by Landscape Architecture Lead",
       tagline: "Feasible, attractive commercial shop & interior layout design.",
       description:
         "We design physical commercial environments and retail stores that are feasible, structurally disciplined, and visually compelling. We optimize customer circulation, storefront aesthetics, and spatial ambiance.",
       deliverables: [
         "Retail Store Layout & Circulation Planning",
-        "Storefront Façade & Exterior Identity",
+        "Storefront Façade & Exterior Elevation",
         "Commercial Interior Styling & Joinery Specs",
-        "Spatial Experience & Feasibility Blueprints",
+        "Feasibility Plans and Working Drawings",
       ],
       icon: Building2,
-      accent: true,
+      accentColor: "#3DD6A0",
     },
   ];
 
   const supportingTriad = [
     {
-      id: "01",
-      title: "Strategy",
-      discipline: "Research & Direction",
+      id: "03",
+      slug: "strategy",
+      title: "Business Strategy",
+      discipline: "Research & Planning",
       tagline: "Actionable growth direction for emerging businesses.",
       description:
-        "We uncover real market gaps, define strategic brand positioning, and build practical roadmaps to modernize your business operations and capture new market share.",
+        "We uncover real market opportunities, define strategic brand positioning, and build practical roadmaps to modernize your business operations and capture new market share.",
       deliverables: [
         "Business Growth Roadmaps",
         "Market Opportunity Analysis",
         "Digital Modernization Planning",
-        "Competitive Positioning Specs",
+        "Target Audience Research",
       ],
       icon: Compass,
+      accentColor: "#F5B942",
     },
     {
-      id: "03",
-      title: "Product Design",
+      id: "04",
+      slug: "branding",
+      title: "Branding & Design",
       discipline: "Visual & Catalog Systems",
       tagline: "Disciplined visual systems that elevate your products.",
       description:
@@ -67,57 +72,60 @@ export function Services() {
         "Logo & Brand Identity Systems",
         "Digital Product Showcases & Catalogs",
         "Commercial Marketing Posters & Print",
-        "Swiss Grid Visual Guidelines",
+        "Brand Guidelines & Asset Kits",
       ],
       icon: Layers,
+      accentColor: "#B07CFF",
     },
     {
       id: "05",
-      title: "Marketing",
+      slug: "marketing",
+      title: "Social Media & Ads",
       discipline: "Campaigns & Distribution",
-      tagline: "Targeted digital campaigns & algorithmic growth.",
+      tagline: "Targeted digital campaigns and social media growth.",
       description:
-        "Putting your business in front of ready-to-buy customers. We execute high-impact social media marketing, targeted ad campaigns, and algorithm-informed distribution to drive sales.",
+        "Putting your business in front of ready-to-buy customers. We execute high-impact social media marketing, targeted ad campaigns, and platform-optimized distribution to drive sales.",
       deliverables: [
         "Social Media Ad Campaigns",
-        "Platform Algorithm Optimization",
-        "Audience Targeting & Retargeting",
-        "Multi-Channel Campaign Rollouts",
+        "Targeted Audience Ads (Meta / TikTok)",
+        "Multi-Channel Campaign Distribution",
+        "Performance Analytics & Reporting",
       ],
       icon: Megaphone,
+      accentColor: "#FF5A1F",
     },
   ];
 
   return (
-    <section id="services" className="relative border-b border-border bg-background py-20 lg:py-28">
+    <section id="services" className="relative scroll-mt-20 border-b border-border bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header: Asymmetric Editorial Framing */}
+        {/* Section Header: Plain language per Section 4.1 */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 border-b border-border pb-8 mb-14">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-primary font-bold mb-3">
-              <span>02 / DISCIPLINES</span>
-              <span className="text-muted-foreground">•</span>
-              <span className="text-muted-foreground">THE 5-PILLAR ARCHITECTURAL SUITE</span>
+              <span>Services</span>
+              <span className="text-muted-foreground" aria-hidden="true">•</span>
+              <span className="text-muted-foreground">What We Do</span>
             </div>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold uppercase tracking-tight text-foreground">
               Built across five core areas.
             </h2>
           </div>
           <div className="max-w-md border-l-2 border-border pl-4">
-            <p className="text-sm text-muted-foreground font-sans leading-relaxed">
-              No generic cards, no disconnected freelancers. We eliminate the chaos of coordinating multiple agencies by unifying digital software, spatial architecture, brand design, and marketing under one roof.
+            <p className="text-base text-muted-foreground font-sans leading-relaxed">
+              We design your shop, build your website, create your brand, and run your ads, so everything works together under one roof.
             </p>
           </div>
         </div>
 
-        {/* Feature 1: The Core Dual Pillars (Software + Architecture) */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between mb-3">
+        {/* Feature 1: The Core Foundation (Websites + Spatial Architecture) */}
+        <div className="mb-10">
+          <div className="flex items-center justify-between mb-4">
             <span className="font-mono text-xs uppercase tracking-widest text-foreground font-semibold">
-              The Primary Duality: Physical Space + High-Speed Digital
+              The Physical + Digital Foundation
             </span>
-            <span className="font-mono text-[11px] uppercase tracking-wider text-primary hidden sm:inline-block">
-              Founders&apos; Direct Disciplines
+            <span className="font-mono text-xs uppercase tracking-wider text-primary hidden sm:inline-block">
+              Founders&apos; Direct Leads
             </span>
           </div>
 
@@ -127,30 +135,34 @@ export function Services() {
               return (
                 <div
                   key={item.id}
-                  className="relative border-2 border-border bg-card p-7 sm:p-9 transition-all duration-300 hover:border-primary/80 flex flex-col justify-between shadow-sm"
+                  id={item.slug}
+                  className="relative scroll-mt-24 border-2 border-border bg-card p-7 sm:p-9 transition-all duration-300 hover:border-primary/80 flex flex-col justify-between shadow-sm"
                 >
-                  {/* Corner Markers */}
-                  <span className="absolute -top-1 -left-1 text-primary font-mono text-xs select-none">┌</span>
-                  <span className="absolute -top-1 -right-1 text-primary font-mono text-xs select-none">┐</span>
-                  <span className="absolute -bottom-1 -left-1 text-primary font-mono text-xs select-none">└</span>
-                  <span className="absolute -bottom-1 -right-1 text-primary font-mono text-xs select-none">┘</span>
+                  {/* Decorative Corner Markers */}
+                  <span aria-hidden="true" className="absolute -top-1 -left-1 text-primary font-mono text-xs select-none">┌</span>
+                  <span aria-hidden="true" className="absolute -top-1 -right-1 text-primary font-mono text-xs select-none">┐</span>
+                  <span aria-hidden="true" className="absolute -bottom-1 -left-1 text-primary font-mono text-xs select-none">└</span>
+                  <span aria-hidden="true" className="absolute -bottom-1 -right-1 text-primary font-mono text-xs select-none">┘</span>
 
                   <div>
                     <div className="flex items-center justify-between border-b border-border pb-4 mb-6">
                       <div className="flex items-center gap-3">
-                        <span className="font-mono text-sm font-bold text-primary">
+                        <span className="font-mono text-sm font-bold" style={{ color: item.accentColor }}>
                           {item.id} /
                         </span>
                         <span className="font-mono text-xs uppercase tracking-wider text-foreground font-semibold">
                           {item.discipline}
                         </span>
                       </div>
-                      <div className="size-8 rounded-none bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
-                        <Icon className="size-4" />
+                      <div
+                        className="size-8 rounded-none border flex items-center justify-center"
+                        style={{ borderColor: `${item.accentColor}40`, backgroundColor: `${item.accentColor}15`, color: item.accentColor }}
+                      >
+                        <Icon className="size-4" aria-hidden="true" />
                       </div>
                     </div>
 
-                    <div className="font-mono text-[11px] uppercase tracking-wider text-primary font-semibold mb-2">
+                    <div className="font-mono text-xs uppercase tracking-wider text-primary font-semibold mb-2">
                       {item.lead}
                     </div>
 
@@ -168,10 +180,10 @@ export function Services() {
                   </div>
 
                   <div>
-                    {/* Architectural Deliverable Matrix (Replacing Pill Soup) */}
+                    {/* Deliverables: Plain language per Section 4.1 */}
                     <div className="border-t border-border pt-4 mb-6">
-                      <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-3">
-                        Technical Deliverable Specifications
+                      <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3 font-semibold">
+                        What You Get
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {item.deliverables.map((deliv) => (
@@ -179,7 +191,7 @@ export function Services() {
                             key={deliv}
                             className="flex items-start gap-2 text-xs font-mono text-foreground border-b border-border/50 pb-2"
                           >
-                            <Check className="size-3.5 text-primary shrink-0 mt-0.5" />
+                            <Check className="size-3.5 text-primary shrink-0 mt-0.5" aria-hidden="true" />
                             <span>{deliv}</span>
                           </div>
                         ))}
@@ -188,10 +200,10 @@ export function Services() {
 
                     <Link
                       href="#contact"
-                      className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-primary font-semibold hover:text-brand-orange-hover transition-colors"
+                      className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-primary font-semibold hover:text-brand-orange-hover transition-colors min-h-[44px]"
                     >
-                      <span>Commission this pillar</span>
-                      <ArrowUpRight className="size-3.5" />
+                      <span>Discuss {item.title}</span>
+                      <ArrowUpRight className="size-3.5" aria-hidden="true" />
                     </Link>
                   </div>
                 </div>
@@ -200,13 +212,13 @@ export function Services() {
           </div>
         </div>
 
-        {/* Feature 2: Supporting Triad (Strategy, Product Design, Marketing) */}
+        {/* Feature 2: Strategy, Branding & Marketing */}
         <div>
-          <div className="flex items-center justify-between mb-3 pt-4">
+          <div className="flex items-center justify-between mb-4 pt-2">
             <span className="font-mono text-xs uppercase tracking-widest text-foreground font-semibold">
-              The Supporting Triad: Strategy, Visual Identity & Market Distribution
+              Strategy, Brand Design & Growth
             </span>
-            <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground hidden sm:inline-block">
+            <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground hidden sm:inline-block">
               Integrated Capabilities
             </span>
           </div>
@@ -217,82 +229,70 @@ export function Services() {
               return (
                 <div
                   key={item.id}
-                  className="relative border border-border bg-card p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:border-primary/60"
+                  id={item.slug}
+                  className="relative scroll-mt-24 border border-border bg-card p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:border-primary/60"
                 >
                   <div>
-                    <div className="flex items-center justify-between border-b border-border pb-3 mb-5">
+                    <div className="flex items-center justify-between border-b border-border pb-3 mb-4">
                       <div className="flex items-center gap-2">
-                        <span className="font-mono text-xs font-bold text-primary">
+                        <span className="font-mono text-xs font-bold" style={{ color: item.accentColor }}>
                           {item.id} /
                         </span>
-                        <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+                        <span className="font-mono text-xs uppercase tracking-wider text-foreground font-semibold">
                           {item.discipline}
                         </span>
                       </div>
-                      <Icon className="size-4 text-muted-foreground" />
+                      <div
+                        className="size-7 rounded-none border flex items-center justify-center"
+                        style={{ borderColor: `${item.accentColor}40`, backgroundColor: `${item.accentColor}15`, color: item.accentColor }}
+                      >
+                        <Icon className="size-3.5" aria-hidden="true" />
+                      </div>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-display font-bold uppercase text-foreground mb-2">
+                    <h3 className="text-xl font-display font-bold uppercase text-foreground mb-2">
                       {item.title}
                     </h3>
 
-                    <div className="font-mono text-xs text-primary/90 mb-3">
+                    <p className="text-xs font-medium text-foreground mb-2 font-sans">
                       {item.tagline}
-                    </div>
+                    </p>
 
-                    <p className="text-xs text-muted-foreground leading-relaxed font-sans mb-6">
+                    <p className="text-xs text-muted-foreground leading-relaxed font-sans mb-5">
                       {item.description}
                     </p>
                   </div>
 
                   <div>
-                    {/* Tabular Specification List */}
-                    <div className="border-t border-border pt-4 mb-5 space-y-1.5">
-                      <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-2">
-                        Deliverable Matrix
+                    <div className="border-t border-border pt-3 mb-4">
+                      <div className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground mb-2 font-semibold">
+                        What You Get
                       </div>
-                      {item.deliverables.map((deliv) => (
-                        <div
-                          key={deliv}
-                          className="flex items-center gap-2 text-[11px] font-mono text-foreground"
-                        >
-                          <span className="size-1 bg-primary rounded-full shrink-0" />
-                          <span>{deliv}</span>
-                        </div>
-                      ))}
+                      <div className="space-y-1.5">
+                        {item.deliverables.map((deliv) => (
+                          <div
+                            key={deliv}
+                            className="flex items-start gap-2 text-xs font-mono text-muted-foreground"
+                          >
+                            <span className="text-primary" aria-hidden="true">•</span>
+                            <span>{deliv}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
 
                     <Link
                       href="#contact"
-                      className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-foreground hover:text-primary transition-colors"
+                      className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-primary font-semibold hover:underline min-h-[44px]"
                     >
-                      <span>Inquire about {item.title}</span>
-                      <ArrowUpRight className="size-3" />
+                      <span>Inquire</span>
+                      <ArrowUpRight className="size-3" aria-hidden="true" />
                     </Link>
                   </div>
                 </div>
               );
             })}
           </div>
-        </div>
-
-        {/* Bottom Studio Synergy Note */}
-        <div className="mt-8 border border-border bg-background p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <span className="size-2 rounded-full bg-primary" />
-            <span className="font-mono text-xs uppercase tracking-wider text-foreground font-semibold">
-              The Full-Spectrum Advantage:
-            </span>
-            <span className="text-xs text-muted-foreground font-sans hidden md:inline">
-              Your physical shop, online platform, visual identity, and advertising execute as one coordinated campaign.
-            </span>
-          </div>
-          <Link
-            href="#contact"
-            className="font-mono text-xs uppercase tracking-wider text-primary font-semibold hover:underline shrink-0"
-          >
-            Start your project consultation →
-          </Link>
         </div>
       </div>
     </section>

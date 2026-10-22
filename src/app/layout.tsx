@@ -11,57 +11,44 @@ const isPreview =
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "shadez — Different shades. One business.",
-    template: "%s | shadez",
+    default: "Shadez | Websites, Branding & Shop Design in Sri Lanka",
+    template: "%s | Shadez",
   },
   description:
-    "An all-in-one digital marketing and growth studio based in Maruthamunai, Sri Lanka. Strategy, software engineering, product design, commercial architecture, and marketing.",
-  keywords: [
-    "shadez",
-    "all-in-one studio",
-    "digital marketing agency",
-    "software engineering",
-    "top SEO ranking",
-    "commercial retail shop layout",
-    "spatial design",
-    "Maruthamunai",
-    "Sri Lanka",
-    "product design",
-    "brand identity",
-  ],
-  authors: [{ name: "shadez", url: SITE_URL }],
-  creator: "shadez",
-  publisher: "shadez",
+    "Shadez is a Sri Lankan studio for websites, branding, shop interior design and social media ads, all from one team. Based in Maruthamunai.",
+  authors: [{ name: "Shadez", url: SITE_URL }],
+  creator: "Shadez",
+  publisher: "Shadez",
   alternates: {
     canonical: "/",
   },
   icons: {
-    icon: "/brand/shadez-cube-logo.jpg",
-    apple: "/brand/shadez-cube-logo.jpg",
+    icon: "/brand/trademark_logo.png",
+    apple: "/brand/trademark_logo.png",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    siteName: "shadez",
-    title: "shadez — Different shades. One business.",
+    siteName: "Shadez",
+    title: "Shadez | Websites, Branding & Shop Design in Sri Lanka",
     description:
-      "An all-in-one digital marketing and growth studio based in Maruthamunai, Sri Lanka. Connecting thinking and making.",
+      "Shadez is a Sri Lankan studio for websites, branding, shop interior design and social media ads, all from one team. Based in Maruthamunai.",
     images: [
       {
-        url: "/brand/shadez-cube-logo.jpg",
+        url: "/brand/trademark_logo.png",
         width: 1200,
         height: 630,
-        alt: "shadez studio — digital marketing, software, and spatial design",
+        alt: "Shadez — Websites, Branding & Shop Design in Sri Lanka",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "shadez — Different shades. One business.",
+    title: "Shadez | Websites, Branding & Shop Design in Sri Lanka",
     description:
-      "An all-in-one digital marketing and growth studio based in Maruthamunai, Sri Lanka. Connecting thinking and making.",
-    images: ["/brand/shadez-cube-logo.jpg"],
+      "Shadez is a Sri Lankan studio for websites, branding, shop interior design and social media ads, all from one team. Based in Maruthamunai.",
+    images: ["/brand/trademark_logo.png"],
   },
   robots: {
     index: !isPreview,

@@ -1,21 +1,54 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { BrandLogo } from "./brand-logo";
 import { ThemeToggle } from "./theme-toggle";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 
+const NAV_LINKS = [
+  { label: "Services", href: "#services" },
+  { label: "Work", href: "#work" },
+  { label: "Process", href: "#process" },
+  { label: "About", href: "#about" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Contact", href: "#contact" },
+];
+
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
-  const navLinks = [
-    { label: "01 Services", href: "#services" },
-    { label: "02 Work", href: "#work" },
-    { label: "03 Process", href: "#process" },
-    { label: "04 About", href: "#about" },
-    { label: "05 Contact", href: "#contact" },
-  ];
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [mobileMenuOpen]);
+
+  useEffect(() => {
+    const sections = NAV_LINKS.map((l) => l.href.substring(1));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -70% 0px" }
+    );
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/80 bg-background/90 backdrop-blur-md transition-colors">
@@ -23,26 +56,38 @@ export function Navigation() {
         {/* Brand Logo with Trademark Monogram */}
         <BrandLogo size="md" />
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-7 text-sm">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="group relative py-1 text-muted-foreground hover:text-foreground font-mono text-xs uppercase tracking-wider transition-colors duration-200"
-            >
-              <span>{link.label}</span>
-              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-primary transition-all duration-200 group-hover:w-full" />
-            </Link>
-          ))}
+        {/* Desktop Navigation Links (Section 5.1) */}
+        <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-6 text-sm">
+          {NAV_LINKS.map((link) => {
+            const isActive = activeSection === link.href.substring(1);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`group relative py-2 font-mono text-xs uppercase tracking-wider transition-colors duration-200 min-h-[44px] inline-flex items-center ${
+                  isActive ? "text-primary font-bold" : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                <span>{link.label}</span>
+                <span
+                  className={`absolute bottom-1 left-0 h-[1.5px] bg-primary transition-all duration-200 ${
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Right Action, Theme Toggle & Studio Status */}
         <div className="hidden lg:flex items-center gap-5">
           <ThemeToggle showLabel={true} />
 
-          <div className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-muted-foreground border-l border-border pl-5">
-            <span className="relative flex size-2">
+          <div
+            className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-muted-foreground border-l border-border pl-5"
+            aria-label="Studio active in Maruthamunai, Sri Lanka"
+          >
+            <span className="relative flex size-2" aria-hidden="true">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
               <span className="relative inline-flex rounded-full size-2 bg-primary" />
             </span>
@@ -51,9 +96,9 @@ export function Navigation() {
 
           <Link
             href="#contact"
-            className="group inline-flex items-center gap-2 rounded-none bg-primary px-4 py-2 text-xs font-mono uppercase tracking-wider text-primary-foreground font-bold transition-all duration-200 hover:bg-brand-orange-hover hover:translate-y-[-1px] active:translate-y-0 shadow-sm"
+            className="group inline-flex items-center gap-2 rounded-none bg-primary min-h-[44px] px-5 py-2.5 text-xs font-mono uppercase tracking-wider text-primary-foreground font-bold transition-all duration-200 hover:bg-brand-orange-hover hover:translate-y-[-1px] active:translate-y-0 shadow-sm"
           >
-            <span>Scale Yours</span>
+            <span>Start Your Project</span>
             <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
@@ -65,7 +110,9 @@ export function Navigation() {
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Navigation Menu"
-            className="p-2 text-muted-foreground hover:text-foreground border border-border bg-card/60"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-nav-drawer"
+            className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted-foreground hover:text-foreground border border-border bg-card/60"
           >
             {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -74,14 +121,14 @@ export function Navigation() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-border bg-card px-4 py-6 transition-colors">
-          <div className="flex flex-col gap-4">
-            {navLinks.map((link) => (
+        <div id="mobile-nav-drawer" className="md:hidden border-b border-border bg-card px-4 py-6 transition-colors">
+          <nav aria-label="Mobile Navigation" className="flex flex-col gap-3">
+            {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-mono uppercase tracking-wider text-muted-foreground hover:text-foreground py-2 border-b border-border/40"
+                className="text-base font-mono uppercase tracking-wider text-muted-foreground hover:text-foreground py-2.5 min-h-[44px] flex items-center border-b border-border/40"
               >
                 {link.label}
               </Link>
@@ -91,20 +138,20 @@ export function Navigation() {
                 <span className="font-mono text-xs uppercase text-muted-foreground">Appearance</span>
                 <ThemeToggle showLabel={true} />
               </div>
-              <div className="flex items-center gap-2 text-xs font-mono uppercase text-muted-foreground">
-                <span className="size-2 rounded-full bg-primary" />
+              <div className="flex items-center gap-2 text-xs font-mono uppercase text-muted-foreground py-1">
+                <span className="size-2 rounded-full bg-primary" aria-hidden="true" />
                 <span>Maruthamunai, Sri Lanka — Active 2026</span>
               </div>
               <Link
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="inline-flex items-center justify-center gap-2 bg-primary px-4 py-3 text-xs font-mono uppercase tracking-wider text-primary-foreground font-semibold"
+                className="inline-flex items-center justify-center gap-2 bg-primary px-4 py-3 min-h-[44px] text-xs font-mono uppercase tracking-wider text-primary-foreground font-semibold"
               >
-                <span>Scale Yours</span>
+                <span>Start Your Project</span>
                 <ArrowUpRight className="size-4" />
               </Link>
             </div>
-          </div>
+          </nav>
         </div>
       )}
     </header>
