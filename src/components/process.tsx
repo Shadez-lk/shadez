@@ -6,75 +6,67 @@ export function Process() {
     {
       num: "01",
       name: "Understand",
-      subtitle: "Discovery & Opportunity Mapping",
+      subtitle: "Discovery & Opportunity",
       icon: Search,
-      execution:
-        "We analyze your business model, customer footfall or web behavior, physical constraints, and regional market opportunities.",
-      deliverable: "Discovery summary & project roadmap",
+      execution: "Analyze business model, footfall, web behavior, and regional market opportunities.",
+      deliverable: "Project Roadmap",
     },
     {
       num: "02",
       name: "Plan",
-      subtitle: "Architecture & Specifications",
+      subtitle: "Architecture & Blueprints",
       icon: Compass,
-      execution:
-        "We draft clear specifications: shop zoning and layout, website structure and metadata, and campaign timelines.",
-      deliverable: "Technical & spatial blueprint",
+      execution: "Draft clear specifications: shop zoning and layout, website structure, and timelines.",
+      deliverable: "Spatial & Web Blueprint",
     },
     {
       num: "03",
       name: "Design",
-      subtitle: "Visual Identity & Spatial Drawings",
+      subtitle: "Visuals & 3D Drawings",
       icon: Palette,
-      execution:
-        "We design brand assets, logos, commercial posters, and 3D shop layouts before writing code or cutting materials.",
-      deliverable: "Brand asset kit & floor plans",
+      execution: "Craft brand identity, logo systems, commercial posters, and 3D shop layouts before construction.",
+      deliverable: "Brand Kit & 3D Plans",
     },
     {
       num: "04",
       name: "Build",
-      subtitle: "Engineering & Construction",
+      subtitle: "Engineering & Specs",
       icon: Wrench,
-      execution:
-        "We code fast Next.js web applications with clean structure and coordinate physical store styling, joinery specs, and signage.",
-      deliverable: "Live website & finished retail space",
+      execution: "Code fast Next.js applications and specify store joinery, millwork details, and signage.",
+      deliverable: "Live App & Storefront Specs",
     },
     {
       num: "05",
-      name: "Launch & Support",
-      subtitle: "Launch & Continuous Growth",
+      name: "Launch & Grow",
+      subtitle: "Continuous Support",
       icon: TrendingUp,
-      execution:
-        "We deploy your digital platform, launch targeted social ads, track search performance and report regularly, and iterate for continuous growth.",
-      deliverable: "Live presence & ongoing support",
+      execution: "Deploy on global edge, launch targeted ads, track search discoverability, and support ongoing growth.",
+      deliverable: "Live Launch & Support",
       isHighlight: true,
     },
   ];
 
   return (
-    <section id="process" className="relative scroll-mt-20 border-b border-border bg-background py-20 lg:py-28">
+    <section id="process" className="relative scroll-mt-20 border-b border-border bg-background py-16 sm:py-24 transition-colors">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header: Plain language per Section 3.6 & 4.1 */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 border-b border-border pb-8 mb-14">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-primary font-bold mb-3">
-              <span>Process</span>
-              <span className="text-muted-foreground" aria-hidden="true">•</span>
-              <span className="text-muted-foreground">How We Work</span>
+        {/* Section Header: Minimal & Confident */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-10 border-b border-border mb-12">
+          <div>
+            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-primary font-bold mb-2">
+              <span className="size-2 rounded-full bg-primary" aria-hidden="true" />
+              <span>Studio Process</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold uppercase tracking-tight text-foreground">
-              Clear stages. Clear signoffs.
+            <h2 className="text-3xl sm:text-5xl font-display font-bold uppercase tracking-tight text-foreground">
+              Clear stages. Clear sign-offs.
             </h2>
           </div>
-          <div className="max-w-md border-l-2 border-border pl-4">
-            <p className="text-base text-muted-foreground font-sans leading-relaxed">
-              Every project follows a transparent 5-stage roadmap from initial discovery to live launch. Each stage concludes with your formal review and sign-off.
-            </p>
-          </div>
+          <p className="text-sm text-muted-foreground font-sans max-w-md">
+            Every project follows a transparent 5-stage roadmap from initial discovery to live launch. Each stage concludes with your formal review.
+          </p>
         </div>
 
-        {/* 5-Step Timeline Grid (Section 3.6 Compact Layout) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+        {/* Airy 5-Stage Step Flow (Minimal, Non-Heavy Layout) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {stages.map((stage) => {
             const Icon = stage.icon;
             return (
@@ -82,25 +74,25 @@ export function Process() {
                 key={stage.num}
                 className={`relative border p-6 flex flex-col justify-between transition-all duration-300 ${
                   stage.isHighlight
-                    ? "border-primary bg-card shadow-sm"
-                    : "border-border bg-card hover:border-primary/50"
+                    ? "border-primary bg-card/90 shadow-sm"
+                    : "border-border bg-card/50 hover:border-border/80 hover:bg-card"
                 }`}
               >
                 <div>
-                  <div className="flex items-center justify-between border-b border-border pb-3 mb-4">
-                    <span className="font-mono text-lg font-bold text-primary">
-                      {stage.num}
+                  <div className="flex items-center justify-between pb-3 mb-4 border-b border-border/60">
+                    <span className="font-mono text-base font-bold text-primary">
+                      {stage.num} /
                     </span>
                     <div
-                      className={`size-8 flex items-center justify-center ${
-                        stage.isHighlight ? "bg-primary text-primary-foreground" : "bg-background border border-border text-foreground"
+                      className={`size-7 flex items-center justify-center ${
+                        stage.isHighlight ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
                       }`}
                     >
-                      <Icon className="size-4" aria-hidden="true" />
+                      <Icon className="size-3.5" aria-hidden="true" />
                     </div>
                   </div>
 
-                  <h3 className="font-display text-xl font-bold uppercase text-foreground mb-1">
+                  <h3 className="font-display text-lg font-bold uppercase text-foreground mb-1">
                     {stage.name}
                   </h3>
                   <div className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground mb-3 font-semibold">
@@ -112,13 +104,13 @@ export function Process() {
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-border/70">
+                <div className="pt-3 border-t border-border/60">
                   <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-1">
-                    Deliverable:
+                    Deliverable
                   </div>
-                  <div className="font-mono text-xs text-foreground font-medium flex items-start gap-1.5">
-                    <CheckCircle2 className="size-3.5 text-primary shrink-0 mt-0.5" aria-hidden="true" />
-                    <span>{stage.deliverable}</span>
+                  <div className="font-mono text-xs text-foreground font-medium flex items-center gap-1.5">
+                    <CheckCircle2 className="size-3 text-primary shrink-0" aria-hidden="true" />
+                    <span className="truncate">{stage.deliverable}</span>
                   </div>
                 </div>
               </div>

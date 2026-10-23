@@ -28,8 +28,8 @@ export default function Home() {
       <main id="main-content" className="flex-1" suppressHydrationWarning tabIndex={-1}>
         <Hero />
         <Services />
-        <Process />
         <Portfolio />
+        <Process />
         <About />
         <FAQ />
         <Contact />

@@ -3,6 +3,21 @@
 import React, { useState } from "react";
 import { ArrowRight, Mail, Phone, MapPin, Check, MessageSquare, AlertCircle, Loader2, Shield, Copy, CheckCheck, Clock } from "lucide-react";
 
+const SERVICE_OPTIONS = [
+  { value: "Shop + Website Together", label: "Shop + Web Together (Full Suite)" },
+  { value: "Websites & Software", label: "Websites & Software" },
+  { value: "Shop & Interior Design", label: "Shop & Interior Design" },
+  { value: "Branding & Design", label: "Branding & Visual Systems" },
+  { value: "Social Media & Ads", label: "Social Media & Ads" },
+];
+
+const TIMELINE_OPTIONS = [
+  { value: "Immediate (< 1 month)", label: "< 1 Month (Fast-Track)" },
+  { value: "1-3 months", label: "1–3 Months (Standard)" },
+  { value: "3-6 months", label: "3–6 Months (Phased)" },
+  { value: "Exploratory / Discovery", label: "Exploratory / Discovery" },
+];
+
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -13,10 +28,10 @@ export function Contact() {
     name: "",
     email: "",
     phone: "",
-    serviceFocus: "Websites & Software",
+    serviceFocus: "Shop + Website Together",
     timeline: "1-3 months",
     message: "",
-    _gotcha: "", // Honeypot spam trap (Section 5.2)
+    _gotcha: "", // Honeypot spam trap
   });
 
   const handleCopy = (text: string, key: string) => {
@@ -37,7 +52,7 @@ export function Contact() {
     }
 
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      setErrorMessage("Please complete all required fields.");
+      setErrorMessage("Please complete all required fields (Name, Email, and Project Scope).");
       return;
     }
 
@@ -80,53 +95,81 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative scroll-mt-20 border-b border-border bg-background py-20 lg:py-28">
+    <section id="contact" className="relative scroll-mt-20 border-b border-border bg-background py-16 sm:py-24 transition-colors">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header: Plain language per Section 4.1 */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 border-b border-border pb-8 mb-14">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-primary font-bold mb-3">
-              <span>Contact</span>
-              <span className="text-muted-foreground" aria-hidden="true">•</span>
-              <span className="text-muted-foreground">Start a Conversation</span>
+        {/* High-Impact Studio Callout Banner (Signature Industrial Orange Accent) */}
+        <div className="bg-primary text-primary-foreground p-7 sm:p-12 mb-16 shadow-xl relative overflow-hidden">
+          <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
+            <div className="max-w-2xl">
+              <span className="font-mono text-xs uppercase tracking-widest text-primary-foreground/80 font-bold mb-2 block">
+                Direct Maker Access • 24h Response SLA
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold uppercase tracking-tight text-white leading-tight">
+                Ready to build your space and software together?
+              </h2>
+              <p className="text-sm sm:text-base text-primary-foreground/90 font-sans mt-3 leading-relaxed">
+                One unified contract with two founding leads. Direct collaboration between computer engineering and landscape architecture without agency bloat.
+              </p>
             </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold uppercase tracking-tight text-foreground">
-              Let&apos;s build something.
-            </h2>
-          </div>
-          <div className="max-w-md border-l-2 border-border pl-4">
-            <p className="text-base text-muted-foreground font-sans leading-relaxed">
-              Whether you need a search-optimized web platform, a physical commercial shop layout, or an end-to-end brand launch — direct collaboration starts here.
-            </p>
+
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
+              <a
+                href="https://wa.me/94764346350?text=Hi%20Shadez%2C%20I%27d%20like%20to%20discuss%20a%20project."
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Direct WhatsApp inquiry with Shadez founders"
+                className="inline-flex items-center justify-center gap-2.5 bg-black text-white hover:bg-neutral-900 px-6 py-3.5 min-h-[48px] text-xs font-mono uppercase tracking-widest font-bold transition-all shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                <MessageSquare className="size-4" aria-hidden="true" />
+                <span>WhatsApp: +94 76 434 6350</span>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          {/* Left Column: Direct Studio Coordinates (Section 3.8 Rebalanced layout) */}
-          <div className="lg:col-span-5 flex flex-col justify-between gap-8 border-2 border-border bg-card p-7 sm:p-9 relative shadow-sm">
-            {/* Corner Markers (Screen-reader hidden) */}
+        {/* Section Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-10 border-b border-border mb-12">
+          <div>
+            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-primary font-bold mb-2">
+              <span className="size-2 rounded-full bg-primary" aria-hidden="true" />
+              <span>06 / Project Commission Desk</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-display font-bold uppercase tracking-tight text-foreground">
+              Let&apos;s build something.
+            </h2>
+          </div>
+          <p className="text-sm text-muted-foreground font-sans max-w-md">
+            Whether you need a search-optimized web platform, a physical commercial shop layout, or an end-to-end brand launch — direct collaboration starts here.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
+          {/* Left Column: Direct Studio Coordinates & Availability */}
+          <div className="lg:col-span-5 flex flex-col justify-between gap-8 border border-border bg-card p-6 sm:p-9 relative shadow-sm">
+            {/* Technical Corner Markers */}
             <span aria-hidden="true" className="absolute -top-1 -left-1 text-primary font-mono text-xs select-none">┌</span>
             <span aria-hidden="true" className="absolute -top-1 -right-1 text-primary font-mono text-xs select-none">┐</span>
             <span aria-hidden="true" className="absolute -bottom-1 -left-1 text-primary font-mono text-xs select-none">└</span>
             <span aria-hidden="true" className="absolute -bottom-1 -right-1 text-primary font-mono text-xs select-none">┘</span>
 
             <div>
-              <div className="flex items-center justify-between border-b border-border pb-3 mb-6">
+              <div className="flex items-center justify-between border-b border-border pb-4 mb-6">
                 <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">
                   Direct Maker Channels
                 </span>
-                <span className="font-mono text-[11px] text-muted-foreground uppercase">
-                  Zero Bureaucracy
-                </span>
+                <div className="inline-flex items-center gap-1.5 font-mono text-[11px] text-foreground">
+                  <span className="size-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
+                  <span>Q4 Commissions Open</span>
+                </div>
               </div>
 
               <div className="space-y-6">
-                {/* Phone & WhatsApp Channel (Highlighted primary channel per 2.4) */}
+                {/* Phone & WhatsApp Channel */}
                 <div className="flex items-start gap-4">
-                  <div className="size-9 bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0 mt-0.5">
+                  <div className="size-10 bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0 mt-0.5">
                     <Phone className="size-4" aria-hidden="true" />
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
                       <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider font-semibold">
                         Phone & WhatsApp
@@ -134,7 +177,7 @@ export function Contact() {
                       <button
                         type="button"
                         onClick={() => handleCopy("+94764346350", "phone")}
-                        className="inline-flex items-center gap-1 font-mono text-xs text-muted-foreground hover:text-primary transition-colors uppercase px-2 py-1 border border-border/80 bg-background min-h-[32px]"
+                        className="inline-flex items-center gap-1 font-mono text-[11px] text-muted-foreground hover:text-primary transition-colors uppercase px-2 py-1 border border-border bg-background min-h-[32px] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
                         title="Copy Phone Number"
                       >
                         {copiedKey === "phone" ? (
@@ -160,28 +203,28 @@ export function Contact() {
                       href="https://wa.me/94764346350?text=Hi%20Shadez%2C%20I%27d%20like%20to%20discuss%20a%20project."
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 font-mono text-xs text-primary hover:underline font-semibold mt-1.5"
+                      className="inline-flex items-center gap-1.5 font-mono text-xs text-primary hover:underline font-semibold mt-1"
                     >
                       <MessageSquare className="size-3.5" aria-hidden="true" />
-                      <span>Chat on WhatsApp</span>
+                      <span>Chat directly on WhatsApp →</span>
                     </a>
                   </div>
                 </div>
 
                 {/* Email Channel */}
                 <div className="flex items-start gap-4">
-                  <div className="size-9 bg-background border border-border flex items-center justify-center text-primary shrink-0 mt-0.5">
+                  <div className="size-10 bg-background border border-border flex items-center justify-center text-primary shrink-0 mt-0.5">
                     <Mail className="size-4" aria-hidden="true" />
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
                       <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider font-semibold">
-                        Studio Email
+                        Founder Direct Email
                       </span>
                       <button
                         type="button"
                         onClick={() => handleCopy("believewave4u@gmail.com", "email")}
-                        className="inline-flex items-center gap-1 font-mono text-xs text-muted-foreground hover:text-primary transition-colors uppercase px-2 py-1 border border-border/80 bg-background min-h-[32px]"
+                        className="inline-flex items-center gap-1 font-mono text-[11px] text-muted-foreground hover:text-primary transition-colors uppercase px-2 py-1 border border-border bg-background min-h-[32px] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
                         title="Copy Email Address"
                       >
                         {copiedKey === "email" ? (
@@ -199,24 +242,24 @@ export function Contact() {
                     </div>
                     <a
                       href="mailto:believewave4u@gmail.com"
-                      className="font-mono text-sm text-foreground hover:text-primary transition-colors font-bold block mt-1"
+                      className="font-mono text-sm text-foreground hover:text-primary transition-colors font-bold block mt-1 truncate"
                     >
                       believewave4u@gmail.com
                     </a>
                     <div className="text-xs text-muted-foreground font-sans mt-0.5">
-                      Direct founder inbox
+                      Direct founder inbox • Zero account managers
                     </div>
                   </div>
                 </div>
 
-                {/* Studio Location */}
+                {/* Studio Hub */}
                 <div className="flex items-start gap-4">
-                  <div className="size-9 bg-background border border-border flex items-center justify-center text-primary shrink-0 mt-0.5">
+                  <div className="size-10 bg-background border border-border flex items-center justify-center text-primary shrink-0 mt-0.5">
                     <MapPin className="size-4" aria-hidden="true" />
                   </div>
                   <div>
                     <div className="font-mono text-xs text-muted-foreground uppercase tracking-wider font-semibold">
-                      Studio Hub
+                      Physical Studio Hub
                     </div>
                     <div className="font-mono text-sm text-foreground font-semibold mt-0.5">
                       Maruthamunai, Eastern Province
@@ -227,9 +270,9 @@ export function Contact() {
                   </div>
                 </div>
 
-                {/* Working Hours (Section 3.8 Content Rebalance) */}
+                {/* Working Hours */}
                 <div className="flex items-start gap-4 pt-2 border-t border-border/60">
-                  <div className="size-9 bg-background border border-border flex items-center justify-center text-muted-foreground shrink-0 mt-0.5">
+                  <div className="size-10 bg-background border border-border flex items-center justify-center text-muted-foreground shrink-0 mt-0.5">
                     <Clock className="size-4" aria-hidden="true" />
                   </div>
                   <div>
@@ -244,7 +287,7 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Response Guarantee Box (Section 2.6 Consistent wording) */}
+            {/* Response Guarantee Box */}
             <div className="border-t border-border pt-6 space-y-2">
               <div className="flex items-center gap-2 font-mono text-xs text-foreground font-semibold uppercase">
                 <Shield className="size-4 text-primary" aria-hidden="true" />
@@ -256,8 +299,8 @@ export function Contact() {
             </div>
           </div>
 
-          {/* Right Column: Project Commission Form (Section 3.8 & 5.2 Clean single control set) */}
-          <div className="lg:col-span-7 border border-border bg-card p-7 sm:p-9">
+          {/* Right Column: Project Commission Terminal */}
+          <div className="lg:col-span-7 border border-border bg-card p-6 sm:p-9 shadow-sm">
             {submitted ? (
               <div className="py-12 flex flex-col items-center justify-center text-center gap-4">
                 <div className="size-14 bg-primary/10 border-2 border-primary text-primary flex items-center justify-center">
@@ -278,7 +321,7 @@ export function Contact() {
                         name: "",
                         email: "",
                         phone: "",
-                        serviceFocus: "Websites & Software",
+                        serviceFocus: "Shop + Website Together",
                         timeline: "1-3 months",
                         message: "",
                         _gotcha: "",
@@ -302,13 +345,13 @@ export function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-                {/* Header Note: Section 2.6 Honest Security Statement */}
+                {/* Header Note */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
                   <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">
-                    Project Inquiry Form
+                    Project Brief Specifications
                   </span>
                   <span className="font-mono text-xs text-muted-foreground">
-                    Your details are sent securely
+                    Sent directly to founders
                   </span>
                 </div>
 
@@ -322,7 +365,7 @@ export function Contact() {
                   </div>
                 )}
 
-                {/* Spam protection honeypot (Section 5.2) */}
+                {/* Honeypot spam trap */}
                 <div className="sr-only" aria-hidden="true">
                   <label htmlFor="_gotcha">Leave this field blank</label>
                   <input
@@ -336,6 +379,68 @@ export function Contact() {
                   />
                 </div>
 
+                {/* Interactive Service Interest Pill Selectors */}
+                <div>
+                  <label className="block font-mono text-xs uppercase tracking-wider text-foreground font-semibold mb-2">
+                    Primary Service Interest <span className="text-primary">*</span>
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2" role="radiogroup" aria-label="Primary Service Interest">
+                    {SERVICE_OPTIONS.map((opt) => {
+                      const isSelected = formData.serviceFocus === opt.value;
+                      return (
+                        <button
+                          key={opt.value}
+                          type="button"
+                          role="radio"
+                          aria-checked={isSelected}
+                          onClick={() => setFormData({ ...formData, serviceFocus: opt.value })}
+                          className={`px-3 py-2.5 text-xs font-mono text-left transition-all border min-h-[44px] flex items-center justify-between focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary ${
+                            isSelected
+                              ? "border-primary bg-primary/10 text-primary font-bold shadow-sm"
+                              : "border-border bg-background text-muted-foreground hover:border-foreground/40 hover:text-foreground"
+                          }`}
+                        >
+                          <span className="truncate pr-2">{opt.label}</span>
+                          {isSelected ? (
+                            <span className="size-1.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
+                          ) : (
+                            <span className="size-1.5 rounded-full border border-muted-foreground/40 shrink-0" aria-hidden="true" />
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Interactive Target Timeline Selector */}
+                <div>
+                  <label className="block font-mono text-xs uppercase tracking-wider text-foreground font-semibold mb-2">
+                    Target Execution Timeline
+                  </label>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2" role="radiogroup" aria-label="Target Execution Timeline">
+                    {TIMELINE_OPTIONS.map((opt) => {
+                      const isSelected = formData.timeline === opt.value;
+                      return (
+                        <button
+                          key={opt.value}
+                          type="button"
+                          role="radio"
+                          aria-checked={isSelected}
+                          onClick={() => setFormData({ ...formData, timeline: opt.value })}
+                          className={`px-2 py-2 text-xs font-mono text-center transition-all border min-h-[44px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary ${
+                            isSelected
+                              ? "border-primary bg-primary text-primary-foreground font-bold shadow-sm"
+                              : "border-border bg-background text-muted-foreground hover:border-foreground/40 hover:text-foreground"
+                          }`}
+                        >
+                          <span>{opt.label}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Contact Coordinates Inputs */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label
@@ -350,7 +455,7 @@ export function Contact() {
                       aria-required="true"
                       autoComplete="name"
                       type="text"
-                      placeholder="e.g. Your name"
+                      placeholder="e.g. Inshaf or Business Name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors font-sans"
@@ -378,66 +483,22 @@ export function Contact() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label
-                      htmlFor="phone"
-                      className="block font-mono text-xs uppercase tracking-wider text-foreground font-semibold mb-2"
-                    >
-                      Phone / WhatsApp (Optional)
-                    </label>
-                    <input
-                      id="phone"
-                      type="tel"
-                      autoComplete="tel"
-                      placeholder="e.g. +94 76 434 6350"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors font-sans"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="serviceFocus"
-                      className="block font-mono text-xs uppercase tracking-wider text-foreground font-semibold mb-2"
-                    >
-                      Primary Service Interest
-                    </label>
-                    <select
-                      id="serviceFocus"
-                      value={formData.serviceFocus}
-                      onChange={(e) => setFormData({ ...formData, serviceFocus: e.target.value })}
-                      className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground focus:outline-none focus:border-primary transition-colors font-sans"
-                    >
-                      <option value="Shop & Website Together">Shop + Website Together (Full Studio Suite)</option>
-                      <option value="Websites & Software">Websites & Software (Next.js & Search Ready)</option>
-                      <option value="Shop & Interior Design">Shop & Interior Design (Commercial Layouts)</option>
-                      <option value="Branding & Design">Branding & Design (Logos & Product Assets)</option>
-                      <option value="Social Media & Ads">Social Media & Targeted Advertising</option>
-                      <option value="Business Strategy">Business Growth Strategy</option>
-                    </select>
-                  </div>
-                </div>
-
                 <div>
                   <label
-                    htmlFor="timeline"
+                    htmlFor="phone"
                     className="block font-mono text-xs uppercase tracking-wider text-foreground font-semibold mb-2"
                   >
-                    Target Execution Timeline
+                    Phone / WhatsApp (Optional)
                   </label>
-                  <select
-                    id="timeline"
-                    value={formData.timeline}
-                    onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                    className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground focus:outline-none focus:border-primary transition-colors font-sans"
-                  >
-                    <option value="Immediate (< 1 month)">Immediate Launch (&lt; 1 month)</option>
-                    <option value="1-3 months">Standard Progression (1–3 months)</option>
-                    <option value="3-6 months">Phased Commercial Rollout (3–6 months)</option>
-                    <option value="Exploratory / Discovery Stage">Exploratory / Discovery Stage</option>
-                  </select>
+                  <input
+                    id="phone"
+                    type="tel"
+                    autoComplete="tel"
+                    placeholder="e.g. +94 76 434 6350"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors font-sans"
+                  />
                 </div>
 
                 <div>
@@ -452,16 +513,16 @@ export function Contact() {
                     required
                     aria-required="true"
                     rows={4}
-                    placeholder="Briefly describe your goals (e.g. retail shop location, website requirements, brand identity, or growth targets)..."
+                    placeholder="Briefly describe your requirements (e.g. retail shop square footage, website specifications, brand visual kit, or launch timeline)..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none font-sans"
                   />
                 </div>
 
-                {/* Consent & Privacy Notice (Section 5.2) */}
+                {/* Privacy Notice */}
                 <p className="text-xs text-muted-foreground font-sans">
-                  Your information is sent securely and used only to respond to your inquiry. By submitting, you agree to our{" "}
+                  Your information is sent securely to our founders and used only to respond to your brief. By submitting, you agree to our{" "}
                   <a href="#privacy" className="text-primary hover:underline font-mono">
                     Privacy Policy
                   </a>.
@@ -471,7 +532,7 @@ export function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-primary min-h-[48px] px-8 text-xs font-mono uppercase tracking-widest text-primary-foreground font-bold hover:bg-brand-orange-hover transition-all duration-200 shadow-lg shadow-primary/15 disabled:opacity-60"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-primary min-h-[48px] px-8 text-xs font-mono uppercase tracking-widest text-primary-foreground font-bold hover:bg-brand-orange-hover transition-all duration-200 shadow-lg shadow-primary/15 disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   >
                     {isSubmitting ? (
                       <>
@@ -488,7 +549,7 @@ export function Contact() {
 
                   <a
                     href="mailto:believewave4u@gmail.com"
-                    className="text-xs font-mono text-muted-foreground hover:text-primary transition-colors text-center sm:text-right min-h-[44px] flex items-center"
+                    className="text-xs font-mono text-muted-foreground hover:text-primary transition-colors text-center sm:text-right min-h-[44px] flex items-center justify-center sm:justify-end"
                   >
                     Direct Email: believewave4u@gmail.com
                   </a>

@@ -155,6 +155,10 @@
   * {
     @apply border-border;
   }
+  html, body {
+    overflow-x: clip;
+    max-width: 100%;
+  }
   body {
     @apply bg-background text-foreground font-sans transition-colors duration-200;
     background-color: var(--background);
@@ -163,6 +167,7 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     letter-spacing: 0.02em;
+    overflow-wrap: break-word;
   }
 }
 

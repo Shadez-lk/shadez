@@ -34,43 +34,42 @@ export function FAQ() {
   ];
 
   return (
-    <section id="faq" className="relative scroll-mt-20 border-b border-border bg-background py-20 lg:py-28">
+    <section id="faq" className="relative scroll-mt-20 bg-[#121212] text-white py-20 sm:py-28 border-b border-neutral-800 transition-colors">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 border-b border-border pb-8 mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 border-b border-neutral-800 pb-8 mb-12">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-primary font-bold mb-3">
-              <span>FAQ</span>
-              <span className="text-muted-foreground" aria-hidden="true">•</span>
-              <span className="text-muted-foreground">Common Questions</span>
+            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[#F25623] font-bold mb-3">
+              <span className="size-2 rounded-full bg-[#F25623]" aria-hidden="true" />
+              <span>Common Questions</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold uppercase tracking-tight text-foreground">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold uppercase tracking-tight text-white">
               Frequently asked questions.
             </h2>
           </div>
-          <div className="max-w-md border-l-2 border-border pl-4">
-            <p className="text-base text-muted-foreground font-sans leading-relaxed">
+          <div className="max-w-md border-l-2 border-neutral-800 pl-4">
+            <p className="text-base text-neutral-400 font-sans leading-relaxed">
               Clear answers on how we collaborate, our project timelines, pricing process, and intellectual property ownership.
             </p>
           </div>
         </div>
 
         {/* Accordion List (Accessible WCAG 2.2 AA) */}
-        <div className="max-w-4xl mx-auto divide-y divide-border border-y border-border">
+        <div className="max-w-4xl mx-auto divide-y divide-neutral-800 border-y border-neutral-800">
           {faqs.map((item, idx) => {
             const isOpen = openIndex === idx;
             return (
-              <div key={item.q} className="py-4">
+              <div key={item.q} className="py-5">
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${idx}`}
-                  className="w-full flex items-center justify-between text-left py-2 font-display text-xl sm:text-2xl font-bold uppercase text-foreground hover:text-primary transition-colors min-h-[44px]"
+                  className="w-full flex items-center justify-between text-left py-2 font-display text-xl sm:text-2xl font-bold uppercase text-white hover:text-[#F25623] transition-colors min-h-[44px]"
                 >
-                  <span className="pr-4">{item.q}</span>
+                  <span className="pr-4 leading-snug">{item.q}</span>
                   <ChevronDown
-                    className={`size-5 text-primary shrink-0 transition-transform duration-200 ${
+                    className={`size-5 text-[#F25623] shrink-0 transition-transform duration-200 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                     aria-hidden="true"
@@ -80,7 +79,7 @@ export function FAQ() {
                 {isOpen && (
                   <div
                     id={`faq-answer-${idx}`}
-                    className="pt-2 pb-4 text-sm sm:text-base text-muted-foreground font-sans leading-relaxed"
+                    className="pt-3 pb-4 text-sm sm:text-base text-neutral-300 font-sans leading-relaxed"
                   >
                     {item.a}
                   </div>
