@@ -78,7 +78,7 @@ export function BrandLogo({
       <span
         className={`font-display font-bold tracking-tight text-foreground leading-none ${textSizes[size]}`}
       >
-        Shadez
+        shadez
       </span>
     </Link>
   );

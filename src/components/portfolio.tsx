@@ -2,303 +2,242 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { ExternalLink, CheckCircle2, Globe, Sparkles, Building2, Layers } from "lucide-react";
+import { ExternalLink, Globe, Search, ChevronDown, ChevronUp } from "lucide-react";
 import { SerpTerminal } from "./serp-terminal";
 
-type ProjectCategory = "all" | "digital" | "brand" | "architecture";
+type ProjectCategory = "all" | "digital" | "spatial" | "brand";
+
+interface ProjectItem {
+  id: string;
+  category: ProjectCategory;
+  categoryLabel: string;
+  title: string;
+  client: string;
+  lead: string;
+  summary: string;
+  image: string;
+  imageAlt: string;
+  badge: string;
+  isLive?: boolean;
+  liveUrl?: string;
+  specs: string[];
+}
+
+const PROJECTS: ProjectItem[] = [
+  {
+    id: "madeena-warriors",
+    category: "digital",
+    categoryLabel: "Software & Web Engineering",
+    title: "Madeena Warriors Community Platform",
+    client: "KM Al-Madeena Batch 2018 (Community Project)",
+    lead: "Computer Engineering Lead",
+    summary:
+      "A fast digital alumni archive engineered with Next.js App Router, structured schema, and sub-second load times. Ranks #1 on Google for its exact brand query.",
+    image: "/work/madeena-warriors.webp",
+    imageAlt: "Madeena Warriors Platform verified live web interface snapshot",
+    badge: "Live in Production",
+    isLive: true,
+    liveUrl: "https://madeenawarriors2k18.vercel.app/",
+    specs: ["Next.js 16 App Router", "Sub-second Edge CDN", "Ranks #1 for Brand Name"],
+  },
+  {
+    id: "commercial-retail-concept",
+    category: "spatial",
+    categoryLabel: "Physical & Spatial Architecture",
+    title: "Commercial Retail Store & Spatial Layout",
+    client: "Studio Speculative Concept • Retail Prototype",
+    lead: "Landscape Architecture Lead",
+    summary:
+      "Feasible commercial shop layout incorporating guided customer circulation paths, natural airflow, birch display millwork, and modern storefront exterior elevations.",
+    image: "/work/shop-concept.webp",
+    imageAlt: "Commercial Retail Shop Concept - 3D architectural interior rendering with birch joinery",
+    badge: "Spatial Concept Prototype",
+    specs: ["Dual-Aisle Guided Flow", "Custom Millwork Specs", "Façade Brand Elevation"],
+  },
+  {
+    id: "brand-identity-concept",
+    category: "brand",
+    categoryLabel: "Visual Systems & Brand Design",
+    title: "Swiss Grid Brand & Visual Identity System",
+    client: "Enterprise Brand System & Guidelines",
+    lead: "Product & Brand Lead",
+    summary:
+      "Disciplined brand identity architecture uniting minimalist isometric monogram design, high-contrast typography specifications, commercial poster layouts, and digital guidelines.",
+    image: "/work/brand-concept.webp",
+    imageAlt: "Swiss Grid Brand Identity Concept - Stationery mockup with orange foil details",
+    badge: "Brand System Specimen",
+    specs: ["Isometric Monogram", "Rajdhani + Inter Type", "Foil Stamped Stationery"],
+  },
+];
 
 export function Portfolio() {
-  const [activeTab, setActiveTab] = useState<ProjectCategory>("all");
+  const [activeCategory, setActiveCategory] = useState<ProjectCategory>("all");
+  const [showDiagnostics, setShowDiagnostics] = useState(false);
 
-  const concepts = [
-    {
-      id: "commercial-retail-concept",
-      title: "Commercial Retail & Shop Layout Concept",
-      context: "Studio Speculative Prototype / Retail Spatial Design",
-      category: "architecture",
-      categoryLabel: "Landscape & Spatial Architecture Lead",
-      summary:
-        "Feasible commercial shop layout incorporating optimized customer movement paths, display millwork joins, natural airflow, and modern storefront façade identity.",
-      image: "/work/shop-concept.webp",
-      imageAlt: "Commercial Retail & Shop Layout Concept - Architectural 3D interior with birch millwork and guided circulation corridor",
-      imageBadge: "3D Spatial Prototype",
-      specs: [
-        { label: "Discipline", val: "Spatial & Shop Architecture" },
-        { label: "Deliverables", val: "Floor plan, elevations, millwork details" },
-        { label: "Circulation Flow", val: "Dual-aisle guided path" },
-        { label: "Status", val: "Studio concept blueprint" },
-      ],
-      badge: "Studio Concept",
-      icon: Building2,
-    },
-    {
-      id: "brand-identity-concept",
-      title: "Swiss Grid Brand & Visual Identity Concept",
-      context: "Enterprise Brand System & Product Guidelines",
-      category: "brand",
-      categoryLabel: "Product & Brand Design Lead",
-      summary:
-        "Disciplined brand identity architecture uniting minimalist isometric monogram design, high-contrast typography specifications, commercial poster layouts, and digital product showcase guidelines.",
-      image: "/work/brand-concept.webp",
-      imageAlt: "Swiss Grid Brand & Visual Identity Concept - Mockup specimen with typography sheets and orange foil details",
-      imageBadge: "Brand System Specimen",
-      specs: [
-        { label: "Discipline", val: "Brand & Visual Identity Design" },
-        { label: "Deliverables", val: "Logo mark, color palette, type specimen" },
-        { label: "Typography", val: "Rajdhani Condensed Display + Inter" },
-        { label: "Status", val: "Studio concept guideline" },
-      ],
-      badge: "Studio Concept",
-      icon: Layers,
-    },
-  ];
+  const filteredProjects =
+    activeCategory === "all"
+      ? PROJECTS
+      : PROJECTS.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="work" className="relative scroll-mt-20 border-b border-border bg-background py-20 lg:py-28">
+    <section id="work" className="relative scroll-mt-20 border-b border-border bg-background py-16 sm:py-24 transition-colors">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header: Plain language per Section 2.1 & 4.1 */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 border-b border-border pb-8 mb-12">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-primary font-bold mb-3">
-              <span>Work</span>
-              <span className="text-muted-foreground" aria-hidden="true">•</span>
-              <span className="text-muted-foreground">Projects & Concepts</span>
+        {/* Header & Category Filters (Inspired by reference Selected Work) */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-border mb-12">
+          <div>
+            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-primary font-bold mb-2">
+              <span className="size-2 rounded-full bg-primary" aria-hidden="true" />
+              <span>Selected Work ({PROJECTS.length})</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold uppercase tracking-tight text-foreground">
-              Real projects. Real results.
+            <h2 className="text-3xl sm:text-5xl font-display font-bold uppercase tracking-tight text-foreground">
+              Built with discipline.
             </h2>
           </div>
-          <div className="max-w-md border-l-2 border-border pl-4">
-            <p className="text-base text-muted-foreground font-sans leading-relaxed">
-              We judge studio quality by real-world performance. From live search-friendly community web platforms to commercial shop concepts.
-            </p>
-          </div>
-        </div>
 
-        {/* Highlight 1: Flagship Live Production Case Study (Madeena Warriors) */}
-        <div className="mb-14">
-          <div className="flex items-center justify-between mb-3">
-            <span className="font-mono text-xs uppercase tracking-widest text-foreground font-semibold flex items-center gap-2">
-              <span className="size-2 bg-primary rounded-full animate-pulse" aria-hidden="true" />
-              <span>Live Case Study • Digital Alumni Platform</span>
-            </span>
-            <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold hidden sm:inline-block">
-              Live in Production
-            </span>
-          </div>
-
-          <div className="relative border-2 border-primary bg-card p-7 sm:p-10 shadow-xl shadow-primary/5">
-            {/* Corner Markers (Screen-reader hidden) */}
-            <span aria-hidden="true" className="absolute -top-1.5 -left-1.5 text-primary font-mono text-sm select-none">┌</span>
-            <span aria-hidden="true" className="absolute -top-1.5 -right-1.5 text-primary font-mono text-sm select-none">┐</span>
-            <span aria-hidden="true" className="absolute -bottom-1.5 -left-1.5 text-primary font-mono text-sm select-none">└</span>
-            <span aria-hidden="true" className="absolute -bottom-1.5 -right-1.5 text-primary font-mono text-sm select-none">┘</span>
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              {/* Main Content */}
-              <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
-                <div>
-                  <div className="flex flex-wrap items-center gap-3 mb-4">
-                    <span className="font-mono text-xs text-primary font-bold uppercase tracking-wider">
-                      Websites & Software
-                    </span>
-                    <span className="font-mono text-[11px] uppercase tracking-widest text-primary border border-primary/40 bg-primary/10 px-2.5 py-0.5 font-bold">
-                      Ranks #1 for its brand name
-                    </span>
-                    <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground border border-border px-2 py-0.5">
-                      Maruthamunai, LK
-                    </span>
-                  </div>
-
-                  <h3 className="text-3xl sm:text-4xl font-display font-bold uppercase text-foreground mb-2 leading-tight">
-                    Madeena Warriors Platform
-                  </h3>
-
-                  <div className="font-mono text-xs text-muted-foreground mb-4 font-medium">
-                    Client: KM Maruthamunai Al-Madeena Vidyalaya Batch 2018 (community project)
-                  </div>
-
-                  <p className="text-sm text-foreground/90 font-sans leading-relaxed mb-4">
-                    Engineered as a fast digital alumni directory and media archive for a local school batch. Built with Next.js App Router, clean semantic structure, and JSON-LD schema, the platform ranks #1 on Google for its exact brand query &ldquo;madeena warriors&rdquo; with multi-tier sitelinks.
-                  </p>
-                </div>
-
-                {/* Proof Metrics Table */}
-                <div className="border border-border/80 bg-background/80 p-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div>
-                    <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                      Search Standing
-                    </div>
-                    <div className="font-display text-2xl font-bold text-primary mt-0.5">
-                      Rank #1
-                    </div>
-                    <div className="text-xs font-mono text-muted-foreground">
-                      Query: &ldquo;madeena warriors&rdquo;
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                      Google Features
-                    </div>
-                    <div className="font-display text-2xl font-bold text-foreground mt-0.5">
-                      Sitelinks
-                    </div>
-                    <div className="text-xs font-mono text-muted-foreground">
-                      Multi-tier SERP presence
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                      Search Entity
-                    </div>
-                    <div className="font-display text-2xl font-bold text-foreground mt-0.5 flex items-center gap-1.5">
-                      <Sparkles className="size-4 text-primary" aria-hidden="true" />
-                      <span>Indexed</span>
-                    </div>
-                    <div className="text-xs font-mono text-muted-foreground">
-                      Structured entity data
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-4 pt-1">
-                  <a
-                    href="https://madeenawarriors2k18.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-primary px-6 py-3 min-h-[44px] text-xs font-mono uppercase tracking-widest text-primary-foreground font-bold hover:bg-brand-orange-hover transition-all"
-                  >
-                    <Globe className="size-3.5" aria-hidden="true" />
-                    <span>Launch Live Platform</span>
-                    <ExternalLink className="size-3.5" aria-hidden="true" />
-                  </a>
-
-                  <div className="text-xs font-mono text-muted-foreground flex items-center gap-1.5">
-                    <CheckCircle2 className="size-3.5 text-primary" aria-hidden="true" />
-                    <span>Hosted on Vercel Global Edge CDN</span>
-                  </div>
-                </div>
-
-                {/* Footnote per Section 2.1 */}
-                <p className="text-xs text-muted-foreground font-mono mt-1 border-t border-border/40 pt-3">
-                  * Ranking observed on October 2026 for the query &ldquo;madeena warriors&rdquo;. Search engine rankings change over time.
-                </p>
-              </div>
-
-              {/* Right Side: Visual Search Proof Terminal */}
-              <div className="lg:col-span-5">
-                <SerpTerminal />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Category Filters for Studio Concepts (Section 2.3) */}
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-4 mb-8">
-          <div className="flex items-center gap-2">
-            <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground font-semibold">
-              Filter Studio Concepts:
-            </span>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Category filters">
+          {/* Filter Pills */}
+          <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Project Categories">
             {[
-              { key: "all", label: "All Concepts" },
-              { key: "architecture", label: "Shop & Spatial Design" },
-              { key: "brand", label: "Brand Identity" },
-            ].map((tab) => (
-              <button
-                key={tab.key}
-                type="button"
-                onClick={() => setActiveTab(tab.key as ProjectCategory)}
-                className={`px-3 py-1.5 min-h-[44px] font-mono text-xs uppercase tracking-wider transition-all border ${
-                  activeTab === tab.key
-                    ? "border-primary bg-primary text-primary-foreground font-bold"
-                    : "border-border bg-card text-muted-foreground hover:text-foreground hover:border-border/80"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Concept Cards Grid (Section 2.3 Factual & Honest) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {concepts
-            .filter((item) => activeTab === "all" || item.category === activeTab)
-            .map((item) => {
-              const Icon = item.icon;
+              { key: "all", label: "All Work" },
+              { key: "digital", label: "Web & Software" },
+              { key: "spatial", label: "Shop Architecture" },
+              { key: "brand", label: "Brand Systems" },
+            ].map((tab) => {
+              const isActive = activeCategory === tab.key;
               return (
-                <div
-                  key={item.id}
-                  className="relative border border-border bg-card p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-primary/60"
+                <button
+                  key={tab.key}
+                  type="button"
+                  onClick={() => setActiveCategory(tab.key as ProjectCategory)}
+                  className={`px-4 py-2 min-h-[44px] text-xs font-mono uppercase tracking-wider transition-all border ${
+                    isActive
+                      ? "border-primary bg-primary text-primary-foreground font-bold"
+                      : "border-border bg-card text-muted-foreground hover:text-foreground"
+                  }`}
                 >
-                  <div>
-                    <div className="flex items-center justify-between border-b border-border pb-3 mb-5">
-                      <span className="font-mono text-xs text-primary font-semibold uppercase flex items-center gap-1.5">
-                        <Icon className="size-3.5" aria-hidden="true" />
-                        <span>{item.categoryLabel}</span>
-                      </span>
-                      <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground border border-border px-2 py-0.5">
-                        {item.badge}
-                      </span>
-                    </div>
-
-                    <h3 className="text-2xl font-display font-bold uppercase text-foreground mb-2">
-                      {item.title}
-                    </h3>
-
-                    <div className="font-mono text-xs text-muted-foreground mb-4">
-                      Context: {item.context}
-                    </div>
-
-                    <p className="text-sm text-muted-foreground leading-relaxed font-sans mb-6">
-                      {item.summary}
-                    </p>
-
-                    {/* Concept Visual Asset */}
-                    <div className="relative aspect-[16/10] w-full overflow-hidden border border-border bg-background mb-6 group">
-                      <Image
-                        src={item.image}
-                        alt={item.imageAlt}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 600px"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute bottom-2.5 left-2.5 bg-background/90 backdrop-blur-sm border border-border px-2.5 py-1 font-mono text-[10px] text-foreground uppercase tracking-wider flex items-center gap-1.5">
-                        <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
-                        <span>{item.imageBadge}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    {/* Specification Table */}
-                    <div className="border border-border/70 bg-background/60 p-4 mb-4 space-y-2">
-                      {item.specs.map((spec) => (
-                        <div
-                          key={spec.label}
-                          className="flex items-center justify-between text-xs font-mono"
-                        >
-                          <span className="text-muted-foreground">{spec.label}</span>
-                          <span className="text-foreground font-medium">{spec.val}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="border-t border-border pt-4 flex items-center justify-between font-mono text-xs">
-                      <span className="text-muted-foreground uppercase text-[11px] tracking-wider">
-                        Engagement Scope:
-                      </span>
-                      <span className="text-foreground font-semibold">Available for Custom Client Commission</span>
-                    </div>
-                  </div>
-                </div>
+                  {tab.label}
+                </button>
               );
             })}
+          </div>
+        </div>
+
+        {/* 3 Tall Visual Showcase Cards Grid (Reference Layout) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          {filteredProjects.map((project) => (
+            <div
+              key={project.id}
+              className="group border border-border bg-card flex flex-col justify-between overflow-hidden transition-all duration-300 hover:border-primary hover:shadow-xl"
+            >
+              <div>
+                {/* Visual Image Container */}
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
+                  <Image
+                    src={project.image}
+                    alt={project.imageAlt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+
+                  {/* Top Badge */}
+                  <div className="absolute top-3 left-3">
+                    <span className="bg-background/90 backdrop-blur-md border border-border px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-foreground font-semibold">
+                      {project.badge}
+                    </span>
+                  </div>
+
+                  {/* Discipline Overlay */}
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs font-mono">
+                    <span className="truncate">{project.categoryLabel}</span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-display font-bold uppercase text-foreground mb-2 leading-snug group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+
+                  <div className="font-mono text-xs text-muted-foreground mb-3">
+                    {project.client}
+                  </div>
+
+                  <p className="text-xs text-muted-foreground font-sans leading-relaxed mb-6">
+                    {project.summary}
+                  </p>
+
+                  {/* Key Specifications */}
+                  <div className="space-y-1.5 border-t border-border pt-4">
+                    {project.specs.map((spec) => (
+                      <div key={spec} className="flex items-center gap-2 text-[11px] font-mono text-foreground/90">
+                        <span className="size-1 rounded-full bg-primary" aria-hidden="true" />
+                        <span>{spec}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Action Bar */}
+              <div className="p-6 pt-0 border-t border-border/60 mt-4 flex items-center justify-between">
+                {project.isLive && project.liveUrl ? (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-primary font-bold hover:underline min-h-[44px] items-center"
+                  >
+                    <Globe className="size-3.5" aria-hidden="true" />
+                    <span>Launch Live Site</span>
+                    <ExternalLink className="size-3" aria-hidden="true" />
+                  </a>
+                ) : (
+                  <span className="font-mono text-[11px] text-muted-foreground uppercase tracking-wider">
+                    Studio Blueprint Specimen
+                  </span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Collapsible Search Diagnostics & SERP Proof Drawer */}
+        <div className="border border-border bg-card p-6 transition-all">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="size-9 bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0">
+                <Search className="size-4" aria-hidden="true" />
+              </div>
+              <div>
+                <h4 className="font-display text-lg font-bold uppercase text-foreground">
+                  Madeena Warriors: Verified Search Telemetry
+                </h4>
+                <p className="text-xs text-muted-foreground font-sans">
+                  Inspect the live Google SERP ranking, Core Web Vitals (100 score), and structured schema telemetry.
+                </p>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setShowDiagnostics(!showDiagnostics)}
+              aria-expanded={showDiagnostics}
+              className="inline-flex items-center gap-2 border border-border bg-background px-4 py-2 min-h-[44px] text-xs font-mono uppercase tracking-wider text-foreground hover:border-primary transition-colors self-start sm:self-auto font-semibold"
+            >
+              <span>{showDiagnostics ? "Hide Diagnostics" : "View SERP Proof"}</span>
+              {showDiagnostics ? <ChevronUp className="size-3.5" /> : <ChevronDown className="size-3.5" />}
+            </button>
+          </div>
+
+          {showDiagnostics && (
+            <div className="mt-6 pt-6 border-t border-border">
+              <SerpTerminal />
+              <p className="text-[11px] font-mono text-muted-foreground mt-3">
+                * Ranking observed on October 2026 for the query &ldquo;madeena warriors&rdquo;. Search engine rankings change over time.
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </section>

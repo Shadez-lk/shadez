@@ -1,190 +1,230 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, CornerDownRight, MessageSquare } from "lucide-react";
-import { HeroDualityController } from "./hero-duality-controller";
+import { ArrowUpRight, MessageSquare } from "lucide-react";
+
+type ShowcaseTab = "architecture" | "software" | "branding";
+
+interface ShowcaseItem {
+  id: ShowcaseTab;
+  tabLabel: string;
+  tag: string;
+  headline: string;
+  subline: string;
+  image: string;
+  imageAlt: string;
+  spec1: string;
+  spec2: string;
+  spec3: string;
+}
+
+const SHOWCASE_DATA: Record<ShowcaseTab, ShowcaseItem> = {
+  architecture: {
+    id: "architecture",
+    tabLabel: "01 / Shop Architecture",
+    tag: "Physical & Spatial Design",
+    headline: "Commercial Retail Store & Circulation Design",
+    subline: "Feasible commercial interiors, customer-guided traffic paths, and modern storefront elevations.",
+    image: "/work/shop-concept.webp",
+    imageAlt: "Commercial Retail Store Architecture Concept - Interior 3D Rendering with birch joinery",
+    spec1: "Dual-Aisle Guided Circulation",
+    spec2: "Custom Birch Millwork Specs",
+    spec3: "Storefront Façade Identity",
+  },
+  software: {
+    id: "software",
+    tabLabel: "02 / Web Engineering",
+    tag: "Software & Search Visibility",
+    headline: "High-Speed Next.js Web Platforms",
+    subline: "Clean semantic architecture, sub-second edge performance, and verified organic search discoverability.",
+    image: "/work/madeena-warriors.webp",
+    imageAlt: "Madeena Warriors Platform verified live web interface",
+    spec1: "Next.js 16 + Server Components",
+    spec2: "Sub-Second Global Edge Load",
+    spec3: "Verified Brand Search Standing",
+  },
+  branding: {
+    id: "branding",
+    tabLabel: "03 / Brand Systems",
+    tag: "Visual & Catalog Systems",
+    headline: "Swiss Grid Brand & Visual Identity",
+    subline: "Disciplined isometric logo marks, high-contrast typography specimens, and commercial print guidelines.",
+    image: "/work/brand-concept.webp",
+    imageAlt: "Swiss Grid Brand Identity Concept - Stationery mockup with typography sheets",
+    spec1: "Isometric Monogram System",
+    spec2: "Rajdhani + Inter Typography",
+    spec3: "Commercial Print & Foil Kits",
+  },
+};
 
 export function Hero() {
-  const disciplines = [
-    {
-      num: "01",
-      name: "Websites & Software",
-      role: "Web Engineering",
-      desc: "Fast, search-friendly web apps built with Next.js for speed and search visibility.",
-      href: "#software",
-      accent: "#4FA3FF",
-    },
-    {
-      num: "02",
-      name: "Shop & Interior Design",
-      role: "Spatial Architecture",
-      desc: "Attractive commercial shop layouts, customer circulation, and storefront styling.",
-      href: "#architecture",
-      accent: "#3DD6A0",
-    },
-    {
-      num: "03",
-      name: "Business Strategy",
-      role: "Growth Planning",
-      desc: "Market opportunity analysis and practical roadmaps for emerging enterprises.",
-      href: "#strategy",
-      accent: "#F5B942",
-    },
-    {
-      num: "04",
-      name: "Branding & Design",
-      role: "Visual Systems",
-      desc: "Disciplined brand identities, memorable logos, and digital product showcases.",
-      href: "#branding",
-      accent: "#B07CFF",
-    },
-    {
-      num: "05",
-      name: "Social Media & Ads",
-      role: "Targeted Growth",
-      desc: "Targeted social media campaigns and audience distribution to drive real sales.",
-      href: "#marketing",
-      accent: "#FF5A1F",
-    },
-  ];
+  const [activeTab, setActiveTab] = useState<ShowcaseTab>("architecture");
+  const activeShowcase = SHOWCASE_DATA[activeTab];
 
   return (
-    <section className="relative overflow-hidden border-b border-border bg-background swiss-grid-pattern">
-      {/* Decorative Technical Crosshairs (Screen-reader hidden) */}
-      <div aria-hidden="true" className="absolute top-6 left-6 text-muted-foreground/30 font-mono text-sm select-none pointer-events-none hidden sm:block">
-        +
-      </div>
-      <div aria-hidden="true" className="absolute top-6 right-6 text-muted-foreground/30 font-mono text-sm select-none pointer-events-none hidden sm:block">
-        +
-      </div>
-
-      <div className="mx-auto max-w-7xl px-4 pt-14 pb-16 sm:px-6 lg:px-8 lg:pt-20 lg:pb-24">
-        {/* Top Identification Anchor (Plain Language per Section 4.1) */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border/80 pb-4 mb-10">
-          <div className="inline-flex items-center gap-3">
-            <span className="font-mono text-xs uppercase tracking-widest text-primary font-bold">
-              Shop Design, Websites, Branding & Ads
+    <section className="relative overflow-hidden bg-background pt-12 pb-16 sm:pt-16 sm:pb-24 border-b border-border transition-colors">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Subtle Top Metadata Pill */}
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4 mb-10 text-xs font-mono">
+          <div className="inline-flex items-center gap-2.5">
+            <span className="size-2 rounded-full bg-primary animate-pulse" aria-hidden="true" />
+            <span className="text-foreground font-semibold uppercase tracking-wider">
+              Shadez Studio
             </span>
-            <span className="h-px w-6 bg-border hidden sm:inline-block" aria-hidden="true" />
-            <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest hidden sm:inline-block">
-              Maruthamunai, Sri Lanka • Active 2026
+            <span className="text-muted-foreground" aria-hidden="true">•</span>
+            <span className="text-muted-foreground uppercase tracking-wider">
+              Maruthamunai, Sri Lanka
             </span>
           </div>
-          <div className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-            All Disciplines Under One Team
+          <div className="text-muted-foreground uppercase tracking-wider hidden sm:block">
+            Physical Architecture + Digital Software
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Main Manifesto Column */}
-          <div className="lg:col-span-7 flex flex-col gap-6">
-            {/* Focal Point 1: Display Headline */}
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-display font-bold uppercase tracking-tight leading-[0.9] text-foreground">
-              Different shades.
-              <span className="block text-primary">One business.</span>
-            </h1>
+        {/* Big Confident Headline & Deck (Airy Editorial Layout per Mission Control reference) */}
+        <div className="max-w-4xl mb-10">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold uppercase tracking-tight leading-[0.95] text-foreground mb-6 break-words">
+            You&apos;re building a brand.
+            <span className="block text-primary">We build the space and the software.</span>
+          </h1>
 
-            {/* Above-the-fold Plain Language Value Proposition (Section 4.1) */}
-            <div className="space-y-3 pt-1">
-              <div className="font-mono text-xs sm:text-sm uppercase tracking-wider text-foreground font-semibold flex items-center gap-2">
-                <span className="size-2 bg-primary inline-block shrink-0" aria-hidden="true" />
-                <span>Shop + Website, Built Together</span>
+          <p className="text-lg sm:text-xl text-muted-foreground font-sans leading-relaxed max-w-2xl mb-8">
+            A multidisciplinary studio in Sri Lanka uniting commercial shop architecture, high-speed web engineering, and brand systems under one contract.
+          </p>
+
+          {/* Primary Action Buttons */}
+          <div className="flex flex-wrap items-center gap-4">
+            <Link
+              href="#contact"
+              className="inline-flex items-center gap-2.5 bg-primary px-8 py-3.5 min-h-[48px] text-xs font-mono uppercase tracking-widest text-primary-foreground font-bold transition-all duration-200 hover:bg-brand-orange-hover hover:translate-y-[-1px] shadow-sm"
+            >
+              <span>Start a Project</span>
+              <ArrowUpRight className="size-4" aria-hidden="true" />
+            </Link>
+
+            <Link
+              href="#work"
+              className="inline-flex items-center gap-2 border border-border bg-card px-6 py-3.5 min-h-[48px] text-xs font-mono uppercase tracking-widest text-foreground transition-all duration-200 hover:border-foreground hover:bg-card/80"
+            >
+              <span>Explore Work ↓</span>
+            </Link>
+
+            <a
+              href="https://wa.me/94764346350?text=Hi%20Shadez%2C%20I%27d%20like%20to%20discuss%20a%20project."
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Direct WhatsApp inquiry with Shadez founders"
+              className="inline-flex items-center gap-2 text-xs font-mono text-muted-foreground hover:text-primary transition-colors min-h-[44px] ml-auto sm:ml-0"
+            >
+              <MessageSquare className="size-3.5 text-primary" aria-hidden="true" />
+              <span>WhatsApp: +94 76 434 6350</span>
+            </a>
+          </div>
+        </div>
+
+        {/* The Cinematic Showcase Box (Visual Anchor inspired by reference) */}
+        <div className="relative border border-border bg-card overflow-hidden shadow-2xl transition-all">
+          {/* Showcase Top Bar: Interactive Tabs */}
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-muted/40 px-4 py-2.5 sm:px-6">
+            <div className="flex items-center gap-1.5 font-mono text-xs text-muted-foreground" role="tablist" aria-label="Discipline Showcase">
+              {(["architecture", "software", "branding"] as ShowcaseTab[]).map((tab) => {
+                const isActive = activeTab === tab;
+                return (
+                  <button
+                    key={tab}
+                    type="button"
+                    role="tab"
+                    id={`hero-tab-${tab}`}
+                    aria-selected={isActive}
+                    aria-controls={`hero-panel-${tab}`}
+                    onClick={() => setActiveTab(tab)}
+                    className={`px-3 py-1.5 min-h-[40px] text-xs font-mono uppercase tracking-wider transition-all border ${
+                      isActive
+                        ? "border-primary bg-primary text-primary-foreground font-bold shadow-sm"
+                        : "border-transparent text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {SHOWCASE_DATA[tab].tabLabel}
+                  </button>
+                );
+              })}
+            </div>
+
+            <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground hidden md:inline-block">
+              {activeShowcase.tag}
+            </span>
+          </div>
+
+          {/* Showcase Viewport & Overlay */}
+          <div
+            role="tabpanel"
+            id={`hero-panel-${activeTab}`}
+            aria-labelledby={`hero-tab-${activeTab}`}
+            className="grid grid-cols-1 lg:grid-cols-12 items-center"
+          >
+            {/* Visual Media Canvas (8 cols) */}
+            <div className="lg:col-span-8 relative aspect-[16/10] sm:aspect-[16/9] w-full bg-black overflow-hidden group">
+              <Image
+                src={activeShowcase.image}
+                alt={activeShowcase.imageAlt}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 800px"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+
+              {/* Bottom Badge Over Image */}
+              <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 flex flex-wrap items-center gap-2">
+                <span className="bg-black/80 backdrop-blur-md border border-white/20 text-white px-3 py-1 font-mono text-[11px] uppercase tracking-wider font-semibold">
+                  {activeShowcase.tag}
+                </span>
+                <span className="bg-primary/90 text-primary-foreground px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest font-bold">
+                  Verified Concept Specimen
+                </span>
               </div>
-              <p className="text-base sm:text-lg text-muted-foreground font-sans leading-relaxed">
-                We design your shop, build your website, create your brand and run your ads, so everything looks and works as one business. No juggling five different agencies.
-              </p>
             </div>
 
-            {/* Above-the-fold The Contrast (Section 4.1) */}
-            <div className="border-l-2 border-primary/60 pl-4 py-1 text-sm text-muted-foreground font-sans leading-relaxed">
-              <strong className="text-foreground font-medium font-mono text-xs uppercase tracking-wide block mb-1">
-                The Disjointed Agency Problem: Solved.
-              </strong>
-              Traditional business growth is fragmented: one freelancer designs a logo, another codes a generic site, and no one plans your physical retail space. Shadez connects physical architecture, software engineering, and targeted marketing under one clear contract.
-            </div>
+            {/* Spec & Detail Panel (4 cols) */}
+            <div className="lg:col-span-4 p-6 sm:p-8 flex flex-col justify-between space-y-6 bg-card border-t lg:border-t-0 lg:border-l border-border">
+              <div>
+                <div className="font-mono text-[11px] uppercase tracking-widest text-primary font-bold mb-2">
+                  Integrated Execution
+                </div>
+                <h2 className="text-2xl font-display font-bold uppercase text-foreground mb-3 leading-snug">
+                  {activeShowcase.headline}
+                </h2>
+                <p className="text-xs text-muted-foreground font-sans leading-relaxed mb-6">
+                  {activeShowcase.subline}
+                </p>
 
-            {/* Focal Point 2 & Primary CTAs (Section 4.1 & 5.7) */}
-            <div className="pt-2 flex flex-col sm:flex-row sm:items-center gap-4">
-              <Link
-                href="#contact"
-                className="group inline-flex items-center justify-center gap-3 bg-primary min-h-[48px] px-8 text-xs font-mono uppercase tracking-widest text-primary-foreground font-bold transition-all duration-200 hover:bg-brand-orange-hover hover:translate-y-[-2px] hover:shadow-xl hover:shadow-primary/20 active:translate-y-0"
-              >
-                <span>Start Your Project</span>
-                <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </Link>
-
-              <Link
-                href="#work"
-                className="inline-flex items-center justify-center gap-2 border border-border bg-card/80 backdrop-blur-sm min-h-[48px] px-6 text-xs font-mono uppercase tracking-widest text-foreground transition-all duration-200 hover:border-primary/60 hover:bg-card"
-              >
-                <span>See Our Work</span>
-                <CornerDownRight className="size-3.5 text-primary" />
-              </Link>
-            </div>
-
-            {/* Fast direct access trigger (Section 2.6 & 5.3) */}
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-muted-foreground pt-1">
-              <a
-                href="https://wa.me/94764346350?text=Hi%20Shadez%2C%20I%27d%20like%20to%20discuss%20a%20project."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 hover:text-primary transition-colors min-h-[44px]"
-                aria-label="Direct WhatsApp Inquiry to +94 76 434 6350"
-              >
-                <MessageSquare className="size-3.5 text-primary" />
-                <span>WhatsApp: +94 76 434 6350</span>
-              </a>
-              <span className="text-border" aria-hidden="true">•</span>
-              <span className="text-foreground font-medium">We reply within 24 business hours</span>
-            </div>
-          </div>
-
-          {/* Right Visual Column: Studio Specification Terminal */}
-          <div className="lg:col-span-5 relative">
-            <HeroDualityController />
-          </div>
-        </div>
-
-        {/* 5 Discipline Strip: Consistent 01-05 Ordering (Section 3.4 & 3.7) */}
-        <div className="mt-14 pt-8 border-t border-border">
-          <div className="flex items-center justify-between mb-4">
-            <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground font-semibold">
-              The 5 Core Disciplines
-            </span>
-            <span className="font-mono text-xs uppercase tracking-widest text-primary">
-              Full-Spectrum Execution ↓
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border-t border-l border-border bg-card">
-            {disciplines.map((item) => (
-              <Link
-                key={item.num}
-                href={item.href}
-                className="group border-r border-b border-border p-5 transition-all duration-200 hover:bg-background relative flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between font-mono text-xs mb-2 text-muted-foreground">
-                    <span className="font-bold" style={{ color: item.accent }}>
-                      {item.num} /
-                    </span>
-                    <span className="font-mono text-[11px] uppercase text-muted-foreground group-hover:text-foreground transition-colors">
-                      {item.role}
-                    </span>
+                {/* 3 Core Specs */}
+                <div className="space-y-2 border-t border-border pt-4">
+                  <div className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground mb-2 font-semibold">
+                    Discipline Specifications:
                   </div>
-                  <h3 className="font-display text-lg font-bold uppercase text-foreground mb-1.5 group-hover:text-primary transition-colors">
-                    {item.name}
-                  </h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed font-sans">
-                    {item.desc}
-                  </p>
+                  {[activeShowcase.spec1, activeShowcase.spec2, activeShowcase.spec3].map((spec) => (
+                    <div key={spec} className="flex items-center gap-2 text-xs font-mono text-foreground">
+                      <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
+                      <span>{spec}</span>
+                    </div>
+                  ))}
                 </div>
+              </div>
 
-                <div className="mt-4 pt-3 border-t border-border/50 flex items-center justify-between text-xs font-mono text-muted-foreground group-hover:text-primary">
-                  <span>View service</span>
-                  <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
-                </div>
-              </Link>
-            ))}
+              <div className="border-t border-border pt-4 flex items-center justify-between text-xs font-mono">
+                <span className="text-muted-foreground">Founders&apos; Lead</span>
+                <Link
+                  href="#work"
+                  className="text-primary font-bold hover:underline inline-flex items-center gap-1 min-h-[44px] items-center"
+                >
+                  <span>View in Work</span>
+                  <ArrowUpRight className="size-3" aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
